@@ -1,0 +1,5 @@
+target remote localhost:2331
+file Debug/btle_peripheral.out
+load
+monitor reset
+
