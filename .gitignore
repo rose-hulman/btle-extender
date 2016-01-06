@@ -1,9 +1,0 @@
-_build*/
-[Dd]ebug*/
-[Rr]elease*/
-.settings
-*.vpwhist
-*.vpwhistu
-*.vtg
-#workspace/*
-

@@ -1,39 +1,6 @@
 Rose-Hulman Design Bluetooth Low Energy (BTLE) Range Extender Project
 =====================================================================
 
-Makefile setup:
----------------
-There are 2 projects: the peripheral the central.
-The examples are compiled from within the Nordic SDK directory.
-Each is built using hte Nordic examples for HRM.
-They reference the SDK locations:
-+ examples/ble_peripheral/ble_app_hrs
-+ examples/ble_central/ble_app_hrs_c
-++ There is a bug in this Nordic example.
-   To fix this add the following line to ./examples/ble_central/ble_app_hrs_c/main.c
-   in the SDK directory
-<code>
-#include "app_uart.h"
-</code>
-
-+ In the file common/rules/nrf5x_defs.mak
-  Set the location of your Nordic SDK installation:
-  <code>
-  ifeq ($(NORDIC_SDK_VERSION), 10)
-  NORDIC_SDK_ROOT		?= ../../../nRF/SDK/nRF51_SDK_10.0.0_dc26b5e
-  endif
-  </code>
-
-+ From the top-level directory you can compile both examples with the command 'make'.
-+ To program the peripheral or central example you have to change directory (cd)
-  into the project that you want to work with and issue the command 'make flash-all'
-+ This will write the softdevice that is being compiled and the example into flash.
-+ This project uses softdevice s130 instead of the older s110.
-+ Nordic is end of lifing the s110 in favor of the s130.
-+ To see debug output you need to run the "JLink RTTC Client" once the program has started running
-  on the nRF51 board.
-
-
 Windows Cygwin Install
 ----------------------
 + [Cygwin](https://www.cygwin.com/) is a "Unix" emulator for Windows.
@@ -100,10 +67,9 @@ Linux Notes
 
 Nordic SDK
 ----------
-### [Softdevice nRF51\_SDK v10.x.x](http://developer.nordicsemi.com/nRF5_SDK/)
-+ The softdevice version is 8.0.0.
-+ The Noridc device is NRF51.
-+ We are using the S130 library - was the S110 library.
+### [Softdevice nRF51\_SDK v9.x.x](http://developer.nordicsemi.com/nRF51_SDK/nRF51_SDK_v9.x.x/)
++ Version says 9.x.x, yet actual softdevice version is 8.0.0
++ We are using the S110 library.
 + [Documentation](http://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk51.v9.0.0%2Fnrf51_getting_started.html)
 
 
