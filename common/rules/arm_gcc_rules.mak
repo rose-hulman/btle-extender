@@ -27,7 +27,7 @@ BUILD_TYPE	?= Debug
 # This will change with the version of compiler being used.
 ###
 GNU_PREFIX	:= arm-none-eabi
-GNU_GCC_ROOT	:= /usr/local/gcc-$(GNU_PREFIX)
+GNU_GCC_ROOT	:= C:/Program Files (x86)/GNU Tools ARM Embedded/4.9 2015q3
 GNU_VERSION     := 4.9.3
 
 ###

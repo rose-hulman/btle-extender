@@ -57,7 +57,7 @@ NORDIC_DEVICE_LOWER	:= $(shell echo $(NORDIC_DEVICE) | tr A-Z a-z)
 # The Nordic SDK version.
 # Version 10 or 11 works.
 ###
-NORDIC_SDK_VERSION	?= 10
+NORDIC_SDK_VERSION	?= 11
 
 ###
 # Set to 1 in order to enable the DFU service in a Nordic application.
@@ -69,11 +69,13 @@ NORDIC_DFU_SUPPORT	?= 0
 # This will change based on SDK version.
 ###
 ifeq ($(NORDIC_SDK_VERSION), 11)
-NORDIC_SDK_ROOT		?= ../../../nRF/SDK/nRF5_SDK_11.0.0-2.alpha_bc3f6a0
+NORDIC_SDK_ROOT		?= ../../SDK11
+#/nRF5_SDK_11.0.0-2.alpha_bc3f6a0
 endif
 
 ifeq ($(NORDIC_SDK_VERSION), 10)
-NORDIC_SDK_ROOT		?= ../../../nRF/SDK/nRF51_SDK_10.0.0_dc26b5e
+NORDIC_SDK_ROOT		?= ../../SDK10
+#/nRF51_SDK_10.0.0_dc26b5e
 endif
 
 ###
