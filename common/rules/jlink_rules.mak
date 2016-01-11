@@ -17,10 +17,18 @@
 SOFT_DEVICE_ROOT		?= $(NORDIC_SDK_ROOT)/components/softdevice/$(SOFT_DEVICE_LOWER)
 
 ###
-# Nordic keeps naming their hex files differently.
-# Use the find command to search for it.
+# Note: only set up for SDK 11 at the moment.
+# TODO: Make this for SDK 10.
 ###
-SOFT_DEVICE_HEX_FILE		:= $(shell find $(SOFT_DEVICE_ROOT)/hex -iname '*.hex')
+ifeq ($(NORDIC_SDK_VERSION), 11)
+ifeq ($(NORDIC_DEVICE), NRF51)
+SOFT_DEVICE_HEX_FILE		:= $(SOFT_DEVICE_ROOT)/hex/s130_nrf51_2.0.0-7.alpha_softdevice.hex
+endif
+
+ifeq ($(NORDIC_DEVICE), NRF52)
+SOFT_DEVICE_HEX_FILE		:= $(SOFT_DEVICE_ROOT)/hex/s132_nrf52_2.0.0-7.alpha_softdevice.hex
+endif
+endif
 
 ###
 # Nordic CONFIG, ERASEALLm ERASEUICR registers.
