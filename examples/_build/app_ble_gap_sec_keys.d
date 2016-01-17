@@ -1,0 +1,9 @@
+.\_build\app_ble_gap_sec_keys.o: ..\..\..\..\..\..\components\serialization\application\codecs\s130\serializers\app_ble_gap_sec_keys.c
+.\_build\app_ble_gap_sec_keys.o: ..\..\..\..\..\..\components\serialization\application\codecs\s130\serializers\app_ble_gap_sec_keys.h
+.\_build\app_ble_gap_sec_keys.o: ..\..\..\..\..\..\components\softdevice\s130\headers\ble_gap.h
+.\_build\app_ble_gap_sec_keys.o: ..\..\..\..\..\..\components\softdevice\s130\headers\ble_types.h
+.\_build\app_ble_gap_sec_keys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\_build\app_ble_gap_sec_keys.o: ..\..\..\..\..\..\components\softdevice\s130\headers\ble_ranges.h
+.\_build\app_ble_gap_sec_keys.o: ..\..\..\..\..\..\components\softdevice\s130\headers\nrf_svc.h
+.\_build\app_ble_gap_sec_keys.o: ..\..\..\..\..\..\components\softdevice\s130\headers\nrf_error.h
+.\_build\app_ble_gap_sec_keys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
