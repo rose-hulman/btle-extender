@@ -74,14 +74,14 @@ BUILD_TYPE	?= Debug
 ifneq (,$(findstring Darwin,$(shell uname)))
 	SEGGER_JLINK_ROOT := /Applications/SEGGER/JLink
 else
-	SEGGER_JLINK_ROOT := /opt/JLink
+	SEGGER_JLINK_ROOT := C:/Program Files (x86)/SEGGER/JLink_V502
 endif
 
 ###
 # Segger JLink commands
 ###
-JLINK_EXE		:= "$(SEGGER_JLINK_ROOT)/JLinkExe"
-JLINK_GDB_SERVER	:= "$(SEGGER_JLINK_ROOT)/JLinkGDBServer"
+JLINK_EXE		:= "$(SEGGER_JLINK_ROOT)/JLink.exe"
+JLINK_GDB_SERVER	:= "$(SEGGER_JLINK_ROOT)/JLinkGDBServer.exe"
 
 ###
 # Segger Toolchain commands
