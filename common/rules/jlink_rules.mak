@@ -153,6 +153,13 @@ $(BUILD_TYPE)/flash_target.jlink: $(BUILD_TYPE)/$(TARGET_NAME).hex
 	$(NO_ECHO) printf "r\n"            >> $@
 	$(NO_ECHO) printf "exit\n"         >> $@
 
+$(BUILD_TYPE)/run_target.jlink: $(BUILD_TYPE)/$(TARGET_NAME).hex
+	$(NO_ECHO) printf "Fashing and running $<\n"
+	$(NO_ECHO) printf "speed 1000\n"    > $@
+	$(NO_ECHO) printf "loadfile $<\n"  >> $@
+	$(NO_ECHO) printf "r\n"            >> $@
+	$(NO_ECHO) printf "g\n"            >> $@
+
 $(BUILD_TYPE)/flash_softdevice.jlink: | $(BUILD_TYPE)
 	$(NO_ECHO) printf "Flashing $(SOFT_DEVICE_HEX_FILE)\n"
 	$(NO_ECHO) printf "speed 1000\n"    > $@
