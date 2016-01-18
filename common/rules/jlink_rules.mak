@@ -108,7 +108,7 @@ JLINK_GDB_OPTS	+= -localhostonly 0
 JLINK_GDB_OPTS	+= -strict
 JLINK_GDB_OPTS	+= -timeout 0
 
-.PHONY: run-debug flash-all flash flash-softdevice flash-erase flash-erase-all flash-app-valid flash-app-invalid jlink-help jlink-info
+.PHONY: run-debug run flash-all flash flash-softdevice flash-erase flash-erase-all flash-app-valid flash-app-invalid jlink-help jlink-info
 
 ###
 # run-debug does not have any dependencies since you may
@@ -116,6 +116,10 @@ JLINK_GDB_OPTS	+= -timeout 0
 ###
 run-debug:
 	$(SUDO) $(JLINK_GDB_SERVER) $(JLINK_OPTS) $(JLINK_GDB_OPTS)
+
+run: $(BUILD_TYPE)/run_target.jlink
+	$(SUDO) $(JLINK_EXE) $(JLINK_OPTS) $^
+	$(NO_ECHO) $(RM) $^
 
 ###
 # JLink related flashing and debug init commands
