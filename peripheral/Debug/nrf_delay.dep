@@ -1,0 +1,12 @@
+Debug/nrf_delay.o: ../../SDK11/components/drivers_nrf/delay/nrf_delay.c \
+ ../../SDK11/components/device/compiler_abstraction.h \
+ ../../SDK11/components/device/nrf.h \
+ ../../SDK11/components/device/nrf51.h \
+ ../../SDK11/components/toolchain/gcc/core_cm0.h \
+ ../../SDK11/components/toolchain/gcc/core_cmInstr.h \
+ ../../SDK11/components/toolchain/gcc/core_cmFunc.h \
+ ../../SDK11/components/toolchain/system_nrf51.h \
+ ../../SDK11/components/device/nrf51_bitfields.h \
+ ../../SDK11/components/device/nrf51_deprecated.h \
+ ../../SDK11/components/device/compiler_abstraction.h \
+ ../../SDK11/components/drivers_nrf/delay/nrf_delay.h

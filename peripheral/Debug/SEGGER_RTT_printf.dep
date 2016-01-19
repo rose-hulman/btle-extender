@@ -1,0 +1,4 @@
+Debug/SEGGER_RTT_printf.o: \
+ ../../SDK11/components/drivers_ext/segger_rtt/SEGGER_RTT_printf.c \
+ ../../SDK11/components/drivers_ext/segger_rtt/SEGGER_RTT.h \
+ ../../SDK11/components/drivers_ext/segger_rtt/SEGGER_RTT_Conf.h

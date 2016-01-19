@@ -1,0 +1,1 @@
+Debug/retarget.o: ../../SDK11/components/libraries/uart/retarget.c

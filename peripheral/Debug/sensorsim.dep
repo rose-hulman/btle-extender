@@ -1,0 +1,2 @@
+Debug/sensorsim.o: ../../SDK11/components/libraries/sensorsim/sensorsim.c \
+ ../../SDK11/components/libraries/sensorsim/sensorsim.h

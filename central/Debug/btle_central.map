@@ -1,0 +1,1883 @@
+Archive member included because of file (symbol)
+
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (exit)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-init.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (__libc_init_array)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memset.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (memset)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o) (_exit)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uqi.o)
+                              Debug/main.o (__gnu_thumb1_case_uqi)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uhi.o)
+                              Debug/bsp.o (__gnu_thumb1_case_uhi)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                              Debug/SEGGER_RTT_printf.o (__aeabi_uidiv)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+                              Debug/SEGGER_RTT_printf.o (__aeabi_idiv)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcmp.o)
+                              Debug/device_manager_central.o (memcmp)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcpy.o)
+                              Debug/main.o (memcpy)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strcpy.o)
+                              Debug/SEGGER_RTT.o (strcpy)
+c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strlen.o)
+                              Debug/SEGGER_RTT.o (strlen)
+
+Allocating common symbols
+Common symbol       size              file
+
+_SEGGER_RTT         0x78              Debug/SEGGER_RTT.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+ .text          0x00000000        0x0 Debug/main.o
+ .data          0x00000000        0x0 Debug/main.o
+ .bss           0x00000000        0x0 Debug/main.o
+ .text.assert_nrf_callback
+                0x00000000       0x14 Debug/main.o
+ .text.uart_error_handle
+                0x00000000       0x14 Debug/main.o
+ .text          0x00000000        0x0 Debug/RTT_Syscalls_GCC.o
+ .data          0x00000000        0x0 Debug/RTT_Syscalls_GCC.o
+ .bss           0x00000000        0x0 Debug/RTT_Syscalls_GCC.o
+ .text._write   0x00000000        0xe Debug/RTT_Syscalls_GCC.o
+ .text._write_r
+                0x00000000       0x12 Debug/RTT_Syscalls_GCC.o
+ .debug_info    0x00000000      0x957 Debug/RTT_Syscalls_GCC.o
+ .debug_abbrev  0x00000000      0x1cd Debug/RTT_Syscalls_GCC.o
+ .debug_loc     0x00000000      0x102 Debug/RTT_Syscalls_GCC.o
+ .debug_aranges
+                0x00000000       0x28 Debug/RTT_Syscalls_GCC.o
+ .debug_ranges  0x00000000       0x18 Debug/RTT_Syscalls_GCC.o
+ .debug_line    0x00000000      0x174 Debug/RTT_Syscalls_GCC.o
+ .debug_str     0x00000000      0x5de Debug/RTT_Syscalls_GCC.o
+ .comment       0x00000000       0x71 Debug/RTT_Syscalls_GCC.o
+ .debug_frame   0x00000000       0x40 Debug/RTT_Syscalls_GCC.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/RTT_Syscalls_GCC.o
+ .text          0x00000000        0x0 Debug/SEGGER_RTT.o
+ .data          0x00000000        0x0 Debug/SEGGER_RTT.o
+ .bss           0x00000000        0x0 Debug/SEGGER_RTT.o
+ .text._PostTerminalSwitch.constprop.0
+                0x00000000       0x20 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_ReadNoLock
+                0x00000000       0xac Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_Read
+                0x00000000       0x1e Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_WriteSkipNoLock
+                0x00000000       0x90 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_WriteString
+                0x00000000       0x18 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_GetKey
+                0x00000000       0x1e Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_WaitKey
+                0x00000000        0xc Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_HasKey
+                0x00000000       0x20 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_HasData
+                0x00000000       0x18 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_SetNameUpBuffer
+                0x00000000       0x40 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_SetNameDownBuffer
+                0x00000000       0x44 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_Init
+                0x00000000       0x14 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_SetTerminal
+                0x00000000       0x88 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_TerminalOut
+                0x00000000       0xb0 Debug/SEGGER_RTT.o
+ .bss._ActiveTerminal
+                0x00000000        0x1 Debug/SEGGER_RTT.o
+ .rodata._aTerminalId
+                0x00000000       0x10 Debug/SEGGER_RTT.o
+ .text          0x00000000        0x0 Debug/SEGGER_RTT_printf.o
+ .data          0x00000000        0x0 Debug/SEGGER_RTT_printf.o
+ .bss           0x00000000        0x0 Debug/SEGGER_RTT_printf.o
+ .text.SEGGER_RTT_printf
+                0x00000000       0x18 Debug/SEGGER_RTT_printf.o
+ .text          0x00000000        0x0 Debug/app_fifo.o
+ .data          0x00000000        0x0 Debug/app_fifo.o
+ .bss           0x00000000        0x0 Debug/app_fifo.o
+ .text.app_fifo_init
+                0x00000000       0x22 Debug/app_fifo.o
+ .text.app_fifo_put
+                0x00000000       0x24 Debug/app_fifo.o
+ .text.app_fifo_get
+                0x00000000       0x24 Debug/app_fifo.o
+ .text.app_fifo_flush
+                0x00000000        0x8 Debug/app_fifo.o
+ .text.app_fifo_read
+                0x00000000       0x4c Debug/app_fifo.o
+ .text.app_fifo_write
+                0x00000000       0x52 Debug/app_fifo.o
+ .debug_info    0x00000000      0x4be Debug/app_fifo.o
+ .debug_abbrev  0x00000000      0x171 Debug/app_fifo.o
+ .debug_loc     0x00000000      0x2d2 Debug/app_fifo.o
+ .debug_aranges
+                0x00000000       0x48 Debug/app_fifo.o
+ .debug_ranges  0x00000000       0xb0 Debug/app_fifo.o
+ .debug_line    0x00000000      0x278 Debug/app_fifo.o
+ .debug_str     0x00000000      0x363 Debug/app_fifo.o
+ .comment       0x00000000       0x71 Debug/app_fifo.o
+ .debug_frame   0x00000000       0xa4 Debug/app_fifo.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/app_fifo.o
+ .text          0x00000000        0x0 Debug/app_uart_fifo.o
+ .data          0x00000000        0x0 Debug/app_uart_fifo.o
+ .bss           0x00000000        0x0 Debug/app_uart_fifo.o
+ .text.uart_event_handler
+                0x00000000       0xb8 Debug/app_uart_fifo.o
+ .text.app_uart_init
+                0x00000000       0xa0 Debug/app_uart_fifo.o
+ .text.app_uart_flush
+                0x00000000       0x1c Debug/app_uart_fifo.o
+ .text.app_uart_get
+                0x00000000       0x38 Debug/app_uart_fifo.o
+ .text.app_uart_put
+                0x00000000       0x24 Debug/app_uart_fifo.o
+ .text.app_uart_close
+                0x00000000        0xa Debug/app_uart_fifo.o
+ .rodata        0x00000000       0x20 Debug/app_uart_fifo.o
+ .bss.tx_buffer
+                0x00000000        0x1 Debug/app_uart_fifo.o
+ .bss.m_event_handler
+                0x00000000        0x4 Debug/app_uart_fifo.o
+ .bss.rx_buffer
+                0x00000000        0x1 Debug/app_uart_fifo.o
+ .bss.m_tx_fifo
+                0x00000000       0x10 Debug/app_uart_fifo.o
+ .bss.m_rx_fifo
+                0x00000000       0x10 Debug/app_uart_fifo.o
+ .bss.tx_tmp    0x00000000        0x1 Debug/app_uart_fifo.o
+ .debug_info    0x00000000      0xa9c Debug/app_uart_fifo.o
+ .debug_abbrev  0x00000000      0x202 Debug/app_uart_fifo.o
+ .debug_loc     0x00000000      0x2ec Debug/app_uart_fifo.o
+ .debug_aranges
+                0x00000000       0x48 Debug/app_uart_fifo.o
+ .debug_ranges  0x00000000       0x38 Debug/app_uart_fifo.o
+ .debug_line    0x00000000      0x2f5 Debug/app_uart_fifo.o
+ .debug_str     0x00000000      0x9c1 Debug/app_uart_fifo.o
+ .comment       0x00000000       0x71 Debug/app_uart_fifo.o
+ .debug_frame   0x00000000       0xb0 Debug/app_uart_fifo.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/app_uart_fifo.o
+ .text          0x00000000        0x0 Debug/retarget.o
+ .data          0x00000000        0x0 Debug/retarget.o
+ .bss           0x00000000        0x0 Debug/retarget.o
+ .debug_line    0x00000000        0x0 Debug/retarget.o
+ .debug_str     0x00000000      0x167 Debug/retarget.o
+ .comment       0x00000000       0x71 Debug/retarget.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/retarget.o
+ .text          0x00000000        0x0 Debug/nrf_drv_uart.o
+ .data          0x00000000        0x0 Debug/nrf_drv_uart.o
+ .bss           0x00000000        0x0 Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_init
+                0x00000000       0xf4 Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_uninit
+                0x00000000       0xa0 Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_tx
+                0x00000000       0x88 Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_rx
+                0x00000000       0xf0 Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_rx_enable
+                0x00000000       0x2c Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_rx_disable
+                0x00000000       0x18 Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_errorsrc_get
+                0x00000000       0x1c Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_tx_abort
+                0x00000000       0x2c Debug/nrf_drv_uart.o
+ .text.nrf_drv_uart_rx_abort
+                0x00000000       0x1c Debug/nrf_drv_uart.o
+ .rodata.m_default_config
+                0x00000000       0x20 Debug/nrf_drv_uart.o
+ .text          0x00000000        0x0 Debug/app_trace.o
+ .data          0x00000000        0x0 Debug/app_trace.o
+ .bss           0x00000000        0x0 Debug/app_trace.o
+ .debug_info    0x00000000       0x72 Debug/app_trace.o
+ .debug_abbrev  0x00000000       0x26 Debug/app_trace.o
+ .debug_aranges
+                0x00000000       0x18 Debug/app_trace.o
+ .debug_line    0x00000000       0x1d Debug/app_trace.o
+ .debug_str     0x00000000      0x1fb Debug/app_trace.o
+ .comment       0x00000000       0x71 Debug/app_trace.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/app_trace.o
+ .text          0x00000000        0x0 Debug/nrf_log.o
+ .data          0x00000000        0x0 Debug/nrf_log.o
+ .bss           0x00000000        0x0 Debug/nrf_log.o
+ .text.log_rtt_write_string
+                0x00000000       0x2c Debug/nrf_log.o
+ .text.log_rtt_write_hex
+                0x00000000       0x42 Debug/nrf_log.o
+ .text.log_rtt_write_hex_char
+                0x00000000       0x32 Debug/nrf_log.o
+ .text.log_rtt_has_input
+                0x00000000        0x8 Debug/nrf_log.o
+ .text.log_rtt_read_input
+                0x00000000       0x18 Debug/nrf_log.o
+ .text.log_hex_char
+                0x00000000       0x30 Debug/nrf_log.o
+ .text.log_hex  0x00000000       0x44 Debug/nrf_log.o
+ .bss.hex_string.5894
+                0x00000000        0x3 Debug/nrf_log.o
+ .bss.hex_string.5903
+                0x00000000        0xb Debug/nrf_log.o
+ .text          0x00000000        0x0 Debug/app_error.o
+ .data          0x00000000        0x0 Debug/app_error.o
+ .bss           0x00000000        0x0 Debug/app_error.o
+ .text.app_error_handler
+                0x00000000       0x1c Debug/app_error.o
+ .text.app_error_save_and_stop
+                0x00000000       0x58 Debug/app_error.o
+ .bss.m_error_data.5667
+                0x00000000       0x20 Debug/app_error.o
+ .text          0x00000000        0x0 Debug/app_timer.o
+ .data          0x00000000        0x0 Debug/app_timer.o
+ .bss           0x00000000        0x0 Debug/app_timer.o
+ .text.app_timer_stop_all
+                0x00000000       0x48 Debug/app_timer.o
+ .text.app_timer_cnt_get
+                0x00000000       0x14 Debug/app_timer.o
+ .text.app_timer_cnt_diff_compute
+                0x00000000        0xc Debug/app_timer.o
+ .text          0x00000000        0x0 Debug/nrf_assert.o
+ .data          0x00000000        0x0 Debug/nrf_assert.o
+ .bss           0x00000000        0x0 Debug/nrf_assert.o
+ .debug_info    0x00000000       0x72 Debug/nrf_assert.o
+ .debug_abbrev  0x00000000       0x26 Debug/nrf_assert.o
+ .debug_aranges
+                0x00000000       0x18 Debug/nrf_assert.o
+ .debug_line    0x00000000       0x1d Debug/nrf_assert.o
+ .debug_str     0x00000000      0x1fb Debug/nrf_assert.o
+ .comment       0x00000000       0x71 Debug/nrf_assert.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/nrf_assert.o
+ .text          0x00000000        0x0 Debug/nrf_delay.o
+ .data          0x00000000        0x0 Debug/nrf_delay.o
+ .bss           0x00000000        0x0 Debug/nrf_delay.o
+ .text.nrf_delay_ms
+                0x00000000       0x38 Debug/nrf_delay.o
+ .debug_info    0x00000000       0xff Debug/nrf_delay.o
+ .debug_abbrev  0x00000000       0xb8 Debug/nrf_delay.o
+ .debug_loc     0x00000000       0x37 Debug/nrf_delay.o
+ .debug_aranges
+                0x00000000       0x20 Debug/nrf_delay.o
+ .debug_ranges  0x00000000       0x28 Debug/nrf_delay.o
+ .debug_line    0x00000000      0x158 Debug/nrf_delay.o
+ .debug_str     0x00000000      0x24b Debug/nrf_delay.o
+ .comment       0x00000000       0x71 Debug/nrf_delay.o
+ .debug_frame   0x00000000       0x24 Debug/nrf_delay.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/nrf_delay.o
+ .text          0x00000000        0x0 Debug/nrf_drv_common.o
+ .data          0x00000000        0x0 Debug/nrf_drv_common.o
+ .bss           0x00000000        0x0 Debug/nrf_drv_common.o
+ .text          0x00000000        0x0 Debug/nrf_drv_gpiote.o
+ .data          0x00000000        0x0 Debug/nrf_drv_gpiote.o
+ .bss           0x00000000        0x0 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_init
+                0x00000000       0xac Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_uninit
+                0x00000000       0x48 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_set
+                0x00000000       0x12 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_clear
+                0x00000000       0x14 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_toggle
+                0x00000000       0x2c Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_task_enable
+                0x00000000       0x38 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_task_disable
+                0x00000000       0x28 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_task_addr_get
+                0x00000000       0x1c Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_task_force
+                0x00000000       0x3c Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_out_task_trigger
+                0x00000000       0x20 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_in_event_disable
+                0x00000000       0x44 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_in_uninit
+                0x00000000       0x4c Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_uninit
+                0x00000000       0x38 Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_in_event_addr_get
+                0x00000000       0x20 Debug/nrf_drv_gpiote.o
+ .text          0x00000000        0x0 Debug/pstorage.o
+ .data          0x00000000        0x0 Debug/pstorage.o
+ .bss           0x00000000        0x0 Debug/pstorage.o
+ .text          0x00000000        0x0 Debug/app_button.o
+ .data          0x00000000        0x0 Debug/app_button.o
+ .bss           0x00000000        0x0 Debug/app_button.o
+ .text.app_button_disable
+                0x00000000       0x30 Debug/app_button.o
+ .text.app_button_is_pushed
+                0x00000000       0x2c Debug/app_button.o
+ .text          0x00000000        0x0 Debug/bsp.o
+ .data          0x00000000        0x0 Debug/bsp.o
+ .bss           0x00000000        0x0 Debug/bsp.o
+ .text.bsp_buttons_state_get
+                0x00000000       0x38 Debug/bsp.o
+ .text.bsp_indication_text_set
+                0x00000000        0x8 Debug/bsp.o
+ .text.bsp_buttons_enable
+                0x00000000        0x8 Debug/bsp.o
+ .text.bsp_buttons_disable
+                0x00000000        0x8 Debug/bsp.o
+ .text          0x00000000        0x0 Debug/bsp_btn_ble.o
+ .data          0x00000000        0x0 Debug/bsp_btn_ble.o
+ .bss           0x00000000        0x0 Debug/bsp_btn_ble.o
+ .text          0x00000000        0x0 Debug/ble_advdata.o
+ .data          0x00000000        0x0 Debug/ble_advdata.o
+ .bss           0x00000000        0x0 Debug/ble_advdata.o
+ .text.sd_ble_gap_address_get
+                0x00000000        0x4 Debug/ble_advdata.o
+ .text.sd_ble_gap_adv_data_set
+                0x00000000        0x4 Debug/ble_advdata.o
+ .text.sd_ble_gap_appearance_get
+                0x00000000        0x4 Debug/ble_advdata.o
+ .text.sd_ble_gap_device_name_get
+                0x00000000        0x4 Debug/ble_advdata.o
+ .text.sd_ble_uuid_encode
+                0x00000000        0x4 Debug/ble_advdata.o
+ .text.uuid_list_sized_encode
+                0x00000000       0xc0 Debug/ble_advdata.o
+ .text.uuid_list_encode
+                0x00000000       0x34 Debug/ble_advdata.o
+ .text.adv_data_encode
+                0x00000000      0x484 Debug/ble_advdata.o
+ .text.ble_advdata_set
+                0x00000000       0x64 Debug/ble_advdata.o
+ .debug_info    0x00000000     0x13b9 Debug/ble_advdata.o
+ .debug_abbrev  0x00000000      0x2e6 Debug/ble_advdata.o
+ .debug_loc     0x00000000      0xc97 Debug/ble_advdata.o
+ .debug_aranges
+                0x00000000       0x60 Debug/ble_advdata.o
+ .debug_ranges  0x00000000       0x98 Debug/ble_advdata.o
+ .debug_line    0x00000000      0x4da Debug/ble_advdata.o
+ .debug_str     0x00000000      0xcc9 Debug/ble_advdata.o
+ .comment       0x00000000       0x71 Debug/ble_advdata.o
+ .debug_frame   0x00000000       0xe0 Debug/ble_advdata.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/ble_advdata.o
+ .text          0x00000000        0x0 Debug/ble_advertising.o
+ .data          0x00000000        0x0 Debug/ble_advertising.o
+ .bss           0x00000000        0x0 Debug/ble_advertising.o
+ .text.sd_ble_gap_adv_start
+                0x00000000        0x4 Debug/ble_advertising.o
+ .text.sd_ble_gap_adv_stop
+                0x00000000        0x4 Debug/ble_advertising.o
+ .text.ble_advertising_init
+                0x00000000      0x148 Debug/ble_advertising.o
+ .text.ble_advertising_start
+                0x00000000      0x224 Debug/ble_advertising.o
+ .text.ble_advertising_on_ble_evt
+                0x00000000       0x98 Debug/ble_advertising.o
+ .text.ble_advertising_on_sys_evt
+                0x00000000       0x38 Debug/ble_advertising.o
+ .text.ble_advertising_peer_addr_reply
+                0x00000000       0x30 Debug/ble_advertising.o
+ .text.ble_advertising_whitelist_reply
+                0x00000000       0x58 Debug/ble_advertising.o
+ .text.ble_advertising_restart_without_whitelist
+                0x00000000       0x54 Debug/ble_advertising.o
+ .bss.m_advdata
+                0x00000000       0x38 Debug/ble_advertising.o
+ .bss.m_manuf_specific_data
+                0x00000000        0xc Debug/ble_advertising.o
+ .bss.m_evt_handler
+                0x00000000        0x4 Debug/ble_advertising.o
+ .bss.m_manuf_data_array
+                0x00000000       0x1f Debug/ble_advertising.o
+ .bss.m_whitelist_temporarily_disabled
+                0x00000000        0x1 Debug/ble_advertising.o
+ .bss.m_error_handler
+                0x00000000        0x4 Debug/ble_advertising.o
+ .bss.m_peer_address
+                0x00000000        0x7 Debug/ble_advertising.o
+ .bss.m_adv_modes_config
+                0x00000000       0x24 Debug/ble_advertising.o
+ .bss.mp_whitelist_addr
+                0x00000000       0x20 Debug/ble_advertising.o
+ .bss.m_tx_power_level
+                0x00000000        0x1 Debug/ble_advertising.o
+ .bss.m_whitelist
+                0x00000000       0x10 Debug/ble_advertising.o
+ .bss.m_service_data_array
+                0x00000000       0x1f Debug/ble_advertising.o
+ .bss.m_peer_addr_reply_expected
+                0x00000000        0x1 Debug/ble_advertising.o
+ .bss.m_whitelist_reply_expected
+                0x00000000        0x1 Debug/ble_advertising.o
+ .bss.mp_whitelist_irk
+                0x00000000       0x20 Debug/ble_advertising.o
+ .bss.m_adv_mode_current
+                0x00000000        0x1 Debug/ble_advertising.o
+ .bss.m_advertising_start_pending
+                0x00000000        0x1 Debug/ble_advertising.o
+ .bss.m_slave_conn_int
+                0x00000000        0x4 Debug/ble_advertising.o
+ .bss.m_service_data
+                0x00000000        0xc Debug/ble_advertising.o
+ .bss.m_adv_evt
+                0x00000000        0x1 Debug/ble_advertising.o
+ .data.current_slave_link_conn_handle.7294
+                0x00000000        0x2 Debug/ble_advertising.o
+ .debug_info    0x00000000     0x1f73 Debug/ble_advertising.o
+ .debug_abbrev  0x00000000      0x3f8 Debug/ble_advertising.o
+ .debug_loc     0x00000000      0x396 Debug/ble_advertising.o
+ .debug_aranges
+                0x00000000       0x60 Debug/ble_advertising.o
+ .debug_ranges  0x00000000       0x68 Debug/ble_advertising.o
+ .debug_line    0x00000000      0x55c Debug/ble_advertising.o
+ .debug_str     0x00000000     0x1d24 Debug/ble_advertising.o
+ .comment       0x00000000       0x71 Debug/ble_advertising.o
+ .debug_frame   0x00000000       0xf0 Debug/ble_advertising.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/ble_advertising.o
+ .text          0x00000000        0x0 Debug/ble_conn_params.o
+ .data          0x00000000        0x0 Debug/ble_conn_params.o
+ .bss           0x00000000        0x0 Debug/ble_conn_params.o
+ .text.sd_ble_gap_conn_param_update
+                0x00000000        0x4 Debug/ble_conn_params.o
+ .text.sd_ble_gap_disconnect
+                0x00000000        0x4 Debug/ble_conn_params.o
+ .text.sd_ble_gap_ppcp_set
+                0x00000000        0x4 Debug/ble_conn_params.o
+ .text.sd_ble_gap_ppcp_get
+                0x00000000        0x4 Debug/ble_conn_params.o
+ .text.update_timeout_handler
+                0x00000000       0x74 Debug/ble_conn_params.o
+ .text.conn_params_negotiation
+                0x00000000       0x78 Debug/ble_conn_params.o
+ .text.ble_conn_params_init
+                0x00000000       0x70 Debug/ble_conn_params.o
+ .text.ble_conn_params_stop
+                0x00000000       0x10 Debug/ble_conn_params.o
+ .text.ble_conn_params_on_ble_evt
+                0x00000000       0xac Debug/ble_conn_params.o
+ .text.ble_conn_params_change_conn_params
+                0x00000000       0x6c Debug/ble_conn_params.o
+ .bss.m_change_param
+                0x00000000        0x1 Debug/ble_conn_params.o
+ .bss.m_current_conn_params
+                0x00000000        0x8 Debug/ble_conn_params.o
+ .bss.m_update_count
+                0x00000000        0x1 Debug/ble_conn_params.o
+ .bss.m_conn_params_config
+                0x00000000       0x1c Debug/ble_conn_params.o
+ .bss.m_conn_params_timer_id_data
+                0x00000000       0x20 Debug/ble_conn_params.o
+ .rodata.m_conn_params_timer_id
+                0x00000000        0x4 Debug/ble_conn_params.o
+ .bss.m_conn_handle
+                0x00000000        0x2 Debug/ble_conn_params.o
+ .bss.m_preferred_conn_params
+                0x00000000        0x8 Debug/ble_conn_params.o
+ .debug_info    0x00000000     0x1bcf Debug/ble_conn_params.o
+ .debug_abbrev  0x00000000      0x3f7 Debug/ble_conn_params.o
+ .debug_loc     0x00000000      0x359 Debug/ble_conn_params.o
+ .debug_aranges
+                0x00000000       0x68 Debug/ble_conn_params.o
+ .debug_ranges  0x00000000       0x58 Debug/ble_conn_params.o
+ .debug_line    0x00000000      0x38e Debug/ble_conn_params.o
+ .debug_str     0x00000000     0x1728 Debug/ble_conn_params.o
+ .comment       0x00000000       0x71 Debug/ble_conn_params.o
+ .debug_frame   0x00000000       0xfc Debug/ble_conn_params.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/ble_conn_params.o
+ .text          0x00000000        0x0 Debug/ble_db_discovery.o
+ .data          0x00000000        0x0 Debug/ble_db_discovery.o
+ .bss           0x00000000        0x0 Debug/ble_db_discovery.o
+ .text.ble_db_discovery_close
+                0x00000000       0x1c Debug/ble_db_discovery.o
+ .text          0x00000000        0x0 Debug/ble_hrs_c.o
+ .data          0x00000000        0x0 Debug/ble_hrs_c.o
+ .bss           0x00000000        0x0 Debug/ble_hrs_c.o
+ .text          0x00000000        0x0 Debug/ble_bas_c.o
+ .data          0x00000000        0x0 Debug/ble_bas_c.o
+ .bss           0x00000000        0x0 Debug/ble_bas_c.o
+ .text          0x00000000        0x0 Debug/ble_srv_common.o
+ .data          0x00000000        0x0 Debug/ble_srv_common.o
+ .bss           0x00000000        0x0 Debug/ble_srv_common.o
+ .text.sd_ble_gatts_characteristic_add
+                0x00000000        0x4 Debug/ble_srv_common.o
+ .text.sd_ble_gatts_descriptor_add
+                0x00000000        0x4 Debug/ble_srv_common.o
+ .text.set_security_req
+                0x00000000       0x52 Debug/ble_srv_common.o
+ .text.ble_srv_report_ref_encode
+                0x00000000        0xc Debug/ble_srv_common.o
+ .text.ble_srv_ascii_to_utf8
+                0x00000000       0x12 Debug/ble_srv_common.o
+ .text.characteristic_add
+                0x00000000      0x178 Debug/ble_srv_common.o
+ .text.descriptor_add
+                0x00000000       0x9a Debug/ble_srv_common.o
+ .debug_info    0x00000000      0xb9a Debug/ble_srv_common.o
+ .debug_abbrev  0x00000000      0x208 Debug/ble_srv_common.o
+ .debug_loc     0x00000000      0x1d6 Debug/ble_srv_common.o
+ .debug_aranges
+                0x00000000       0x50 Debug/ble_srv_common.o
+ .debug_ranges  0x00000000       0x40 Debug/ble_srv_common.o
+ .debug_line    0x00000000      0x396 Debug/ble_srv_common.o
+ .debug_str     0x00000000      0x98f Debug/ble_srv_common.o
+ .comment       0x00000000       0x71 Debug/ble_srv_common.o
+ .debug_frame   0x00000000       0xb4 Debug/ble_srv_common.o
+ .ARM.attributes
+                0x00000000       0x31 Debug/ble_srv_common.o
+ .text          0x00000000        0x0 Debug/device_manager_central.o
+ .data          0x00000000        0x0 Debug/device_manager_central.o
+ .bss           0x00000000        0x0 Debug/device_manager_central.o
+ .text.device_instance_free
+                0x00000000       0x2c Debug/device_manager_central.o
+ .text.dm_security_status_req
+                0x00000000       0x70 Debug/device_manager_central.o
+ .text.dm_device_add
+                0x00000000        0x8 Debug/device_manager_central.o
+ .text.dm_device_delete
+                0x00000000       0x5c Debug/device_manager_central.o
+ .text.dm_device_delete_all
+                0x00000000       0x58 Debug/device_manager_central.o
+ .text.dm_service_context_set
+                0x00000000       0xb0 Debug/device_manager_central.o
+ .text.dm_service_context_get
+                0x00000000       0xc4 Debug/device_manager_central.o
+ .text.dm_service_context_delete
+                0x00000000       0x5c Debug/device_manager_central.o
+ .text.dm_application_context_set
+                0x00000000       0xd0 Debug/device_manager_central.o
+ .text.dm_application_context_get
+                0x00000000       0xb8 Debug/device_manager_central.o
+ .text.dm_application_context_delete
+                0x00000000       0xa0 Debug/device_manager_central.o
+ .text.dm_application_instance_set
+                0x00000000       0x3c Debug/device_manager_central.o
+ .text.dm_handle_initialize
+                0x00000000       0x1c Debug/device_manager_central.o
+ .text.dm_peer_addr_set
+                0x00000000       0x98 Debug/device_manager_central.o
+ .text.dm_peer_addr_get
+                0x00000000       0x84 Debug/device_manager_central.o
+ .text.dm_distributed_keys_get
+                0x00000000       0xb0 Debug/device_manager_central.o
+ .bss.m_local_id_info
+                0x00000000       0x17 Debug/device_manager_central.o
+ .text          0x00000000        0x0 Debug/system_nrf51.o
+ .data          0x00000000        0x0 Debug/system_nrf51.o
+ .bss           0x00000000        0x0 Debug/system_nrf51.o
+ .text.SystemCoreClockUpdate
+                0x00000000       0x10 Debug/system_nrf51.o
+ .data.SystemCoreClock
+                0x00000000        0x4 Debug/system_nrf51.o
+ .text          0x00000000        0x0 Debug/softdevice_handler.o
+ .data          0x00000000        0x0 Debug/softdevice_handler.o
+ .bss           0x00000000        0x0 Debug/softdevice_handler.o
+ .text.sd_softdevice_disable
+                0x00000000        0x4 Debug/softdevice_handler.o
+ .text.softdevice_handler_isEnabled
+                0x00000000        0xc Debug/softdevice_handler.o
+ .text.softdevice_handler_sd_disable
+                0x00000000       0x18 Debug/softdevice_handler.o
+ .data          0x00000000        0x0 Debug/gcc_startup_nrf51.o
+ .bss           0x00000000        0x0 Debug/gcc_startup_nrf51.o
+ .ARM.extab     0x00000000        0x0 Debug/gcc_startup_nrf51.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uqi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uqi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uhi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uhi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcmp.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcmp.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcmp.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strcpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strlen.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strlen.o)
+ .text.strlen   0x00000000        0xe c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strlen.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strlen.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .eh_frame      0x00000000        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .jcr           0x00000000        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0001b000         0x00025000         xr
+RAM              0x20001d80         0x00006280         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a
+LOAD Debug/main.o
+LOAD Debug/RTT_Syscalls_GCC.o
+LOAD Debug/SEGGER_RTT.o
+LOAD Debug/SEGGER_RTT_printf.o
+LOAD Debug/app_fifo.o
+LOAD Debug/app_uart_fifo.o
+LOAD Debug/retarget.o
+LOAD Debug/nrf_drv_uart.o
+LOAD Debug/app_trace.o
+LOAD Debug/nrf_log.o
+LOAD Debug/app_error.o
+LOAD Debug/app_timer.o
+LOAD Debug/nrf_assert.o
+LOAD Debug/nrf_delay.o
+LOAD Debug/nrf_drv_common.o
+LOAD Debug/nrf_drv_gpiote.o
+LOAD Debug/pstorage.o
+LOAD Debug/app_button.o
+LOAD Debug/bsp.o
+LOAD Debug/bsp_btn_ble.o
+LOAD Debug/ble_advdata.o
+LOAD Debug/ble_advertising.o
+LOAD Debug/ble_conn_params.o
+LOAD Debug/ble_db_discovery.o
+LOAD Debug/ble_hrs_c.o
+LOAD Debug/ble_bas_c.o
+LOAD Debug/ble_srv_common.o
+LOAD Debug/device_manager_central.o
+LOAD Debug/system_nrf51.o
+LOAD Debug/softdevice_handler.o
+LOAD Debug/gcc_startup_nrf51.o
+START GROUP
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a
+END GROUP
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a
+END GROUP
+
+.fs_data_out    0x00000000        0x0
+                0x00000000                PROVIDE (__start_fs_data, .)
+ *(fs_data)
+                0x00000000                PROVIDE (__stop_fs_data, .)
+
+.text           0x0001b000     0x4fb0
+ *(.Vectors)
+ .Vectors       0x0001b000       0xc0 Debug/gcc_startup_nrf51.o
+                0x0001b000                __Vectors
+ *(.text*)
+ .text          0x0001b0c0       0x60 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .text          0x0001b120       0x78 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+                0x0001b120                _start
+                0x0001b120                _mainCRTStartup
+ .text.exit     0x0001b198       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o)
+                0x0001b198                exit
+ .text.__libc_init_array
+                0x0001b1c4       0x4c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-init.o)
+                0x0001b1c4                __libc_init_array
+ .text.memset   0x0001b210       0x10 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memset.o)
+                0x0001b210                memset
+ .text._exit    0x0001b220        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+                0x0001b220                _exit
+ .text.sd_power_system_off
+                0x0001b224        0x4 Debug/main.o
+ .text.sd_app_evt_wait
+                0x0001b228        0x4 Debug/main.o
+ .text.sd_ble_gap_conn_param_update
+                0x0001b22c        0x4 Debug/main.o
+ .text.sd_ble_gap_disconnect
+                0x0001b230        0x4 Debug/main.o
+ .text.sd_ble_gap_scan_start
+                0x0001b234        0x4 Debug/main.o
+ .text.sd_ble_gap_scan_stop
+                0x0001b238        0x4 Debug/main.o
+ .text.sd_ble_gap_connect
+                0x0001b23c        0x4 Debug/main.o
+ .text.adv_report_parse
+                0x0001b240       0x2e Debug/main.o
+ *fill*         0x0001b26e        0x2 
+ .text.scan_start
+                0x0001b270       0x80 Debug/main.o
+ .text.sys_evt_dispatch
+                0x0001b2f0       0x24 Debug/main.o
+ .text.ble_evt_dispatch
+                0x0001b314      0x144 Debug/main.o
+ .text.device_manager_event_handler
+                0x0001b458      0x1a4 Debug/main.o
+ .text.bsp_event_handler
+                0x0001b5fc       0x5c Debug/main.o
+                0x0001b5fc                bsp_event_handler
+ .text.hrs_c_evt_handler
+                0x0001b658       0x48 Debug/main.o
+ .text.bas_c_evt_handler
+                0x0001b6a0       0x80 Debug/main.o
+ .text.startup.main
+                0x0001b720      0x1a0 Debug/main.o
+                0x0001b720                main
+ .text._GetAvailWriteSpace
+                0x0001b8c0       0x16 Debug/SEGGER_RTT.o
+ .text._WriteNoCheck
+                0x0001b8d6       0x38 Debug/SEGGER_RTT.o
+ .text._WriteBlocking
+                0x0001b90e       0x5c Debug/SEGGER_RTT.o
+ *fill*         0x0001b96a        0x2 
+ .text._DoInit  0x0001b96c       0x64 Debug/SEGGER_RTT.o
+ .text.SEGGER_RTT_WriteNoLock
+                0x0001b9d0       0x60 Debug/SEGGER_RTT.o
+                0x0001b9d0                SEGGER_RTT_WriteNoLock
+ .text.SEGGER_RTT_Write
+                0x0001ba30       0x38 Debug/SEGGER_RTT.o
+                0x0001ba30                SEGGER_RTT_Write
+ .text.SEGGER_RTT_ConfigUpBuffer
+                0x0001ba68       0x68 Debug/SEGGER_RTT.o
+                0x0001ba68                SEGGER_RTT_ConfigUpBuffer
+ .text.SEGGER_RTT_ConfigDownBuffer
+                0x0001bad0       0x64 Debug/SEGGER_RTT.o
+                0x0001bad0                SEGGER_RTT_ConfigDownBuffer
+ .text._StoreChar
+                0x0001bb34       0x3e Debug/SEGGER_RTT_printf.o
+ *fill*         0x0001bb72        0x2 
+ .text._PrintUnsigned
+                0x0001bb74       0xe0 Debug/SEGGER_RTT_printf.o
+ .text.SEGGER_RTT_vprintf
+                0x0001bc54      0x25e Debug/SEGGER_RTT_printf.o
+                0x0001bc54                SEGGER_RTT_vprintf
+ *fill*         0x0001beb2        0x2 
+ .text.tx_byte  0x0001beb4       0x30 Debug/nrf_drv_uart.o
+ .text.rx_done_event
+                0x0001bee4       0x20 Debug/nrf_drv_uart.o
+ .text.tx_done_event
+                0x0001bf04       0x24 Debug/nrf_drv_uart.o
+ .text.rx_byte  0x0001bf28       0x3c Debug/nrf_drv_uart.o
+ .text.UART0_IRQHandler
+                0x0001bf64      0x128 Debug/nrf_drv_uart.o
+                0x0001bf64                UART0_IRQHandler
+ .text.log_rtt_init
+                0x0001c08c       0x54 Debug/nrf_log.o
+                0x0001c08c                log_rtt_init
+ .text.log_rtt_printf
+                0x0001c0e0       0x18 Debug/nrf_log.o
+                0x0001c0e0                log_rtt_printf
+ .text.app_error_fault_handler
+                0x0001c0f8       0x18 Debug/app_error.o
+                0x0001c0f8                app_error_fault_handler
+ .text.app_error_handler_bare
+                0x0001c110       0x1c Debug/app_error.o
+                0x0001c110                app_error_handler_bare
+ .text.user_op_alloc
+                0x0001c12c       0x2c Debug/app_timer.o
+ .text.user_id_get
+                0x0001c158       0x64 Debug/app_timer.o
+ .text.rtc1_stop
+                0x0001c1bc       0x78 Debug/app_timer.o
+ .text.RTC1_IRQHandler
+                0x0001c234       0xb8 Debug/app_timer.o
+                0x0001c234                RTC1_IRQHandler
+ .text.SWI0_IRQHandler
+                0x0001c2ec      0x378 Debug/app_timer.o
+                0x0001c2ec                SWI0_IRQHandler
+ .text.app_timer_init
+                0x0001c664       0xc4 Debug/app_timer.o
+                0x0001c664                app_timer_init
+ .text.app_timer_create
+                0x0001c728       0x30 Debug/app_timer.o
+                0x0001c728                app_timer_create
+ .text.app_timer_start
+                0x0001c758       0x88 Debug/app_timer.o
+                0x0001c758                app_timer_start
+ .text.app_timer_stop
+                0x0001c7e0       0x58 Debug/app_timer.o
+                0x0001c7e0                app_timer_stop
+ .text.nrf_drv_common_irq_enable
+                0x0001c838       0x78 Debug/nrf_drv_common.o
+                0x0001c838                nrf_drv_common_irq_enable
+ .text.nrf_gpio_cfg_sense_set
+                0x0001c8b0       0x24 Debug/nrf_drv_gpiote.o
+ .text.channel_free
+                0x0001c8d4       0x1c Debug/nrf_drv_gpiote.o
+ .text.nrf_drv_gpiote_init
+                0x0001c8f0       0x54 Debug/nrf_drv_gpiote.o
+                0x0001c8f0                nrf_drv_gpiote_init
+ .text.nrf_drv_gpiote_is_init
+                0x0001c944       0x14 Debug/nrf_drv_gpiote.o
+                0x0001c944                nrf_drv_gpiote_is_init
+ .text.nrf_drv_gpiote_in_init
+                0x0001c958       0xd0 Debug/nrf_drv_gpiote.o
+                0x0001c958                nrf_drv_gpiote_in_init
+ .text.nrf_drv_gpiote_in_event_enable
+                0x0001ca28       0x8c Debug/nrf_drv_gpiote.o
+                0x0001ca28                nrf_drv_gpiote_in_event_enable
+ .text.nrf_drv_gpiote_in_is_set
+                0x0001cab4       0x14 Debug/nrf_drv_gpiote.o
+                0x0001cab4                nrf_drv_gpiote_in_is_set
+ .text.GPIOTE_IRQHandler
+                0x0001cac8      0x10c Debug/nrf_drv_gpiote.o
+                0x0001cac8                GPIOTE_IRQHandler
+ .text.pstorage_flash_page_end
+                0x0001cbd4       0x20 Debug/pstorage.o
+ .text.sd_flash_write
+                0x0001cbf4        0x4 Debug/pstorage.o
+ .text.sd_flash_page_erase
+                0x0001cbf8        0x4 Debug/pstorage.o
+ .text.swap_sub_state_entry_action_run
+                0x0001cbfc       0x18 Debug/pstorage.o
+ .text.app_notify
+                0x0001cc14       0x2c Debug/pstorage.o
+ .text.is_page_erase_required
+                0x0001cc40       0x50 Debug/pstorage.o
+ .text.swap_sub_state_err_busy_process
+                0x0001cc90       0x18 Debug/pstorage.o
+ .text.data_to_swap_write_state_run
+                0x0001cca8       0x30 Debug/pstorage.o
+ .text.swap_erase_state_run
+                0x0001ccd8       0x24 Debug/pstorage.o
+ .text.flash_api_err_code_process
+                0x0001ccfc       0x40 Debug/pstorage.o
+ .text.flash_write
+                0x0001cd3c        0xc Debug/pstorage.o
+ .text.store_cmd_flash_write_execute
+                0x0001cd48       0x60 Debug/pstorage.o
+ .text.state_restore_head_entry_run
+                0x0001cda8       0x34 Debug/pstorage.o
+ .text.state_restore_tail_entry_run
+                0x0001cddc       0x48 Debug/pstorage.o
+ .text.state_write_data_swap_entry_run
+                0x0001ce24       0x2c Debug/pstorage.o
+ .text.flash_page_erase
+                0x0001ce50        0xc Debug/pstorage.o
+ .text.state_entry_action_run
+                0x0001ce5c       0xd4 Debug/pstorage.o
+ .text.clear_operation_execute
+                0x0001cf30      0x158 Debug/pstorage.o
+ .text.cmd_process
+                0x0001d088       0x3c Debug/pstorage.o
+ .text.unlikely.cmd_queue_enqueue
+                0x0001d0c4       0x54 Debug/pstorage.o
+ .text.command_end_procedure_run
+                0x0001d118       0x50 Debug/pstorage.o
+ .text.clear_post_processing_run
+                0x0001d168       0x2c Debug/pstorage.o
+ .text.head_restore_state_run
+                0x0001d194       0x94 Debug/pstorage.o
+ .text.tail_restore_state_run
+                0x0001d228       0x1c Debug/pstorage.o
+ .text.data_page_erase_state_run
+                0x0001d244       0x6c Debug/pstorage.o
+ .text.flash_operation_success_run
+                0x0001d2b0       0x98 Debug/pstorage.o
+ .text.state_erase_data_page_entry_run
+                0x0001d348       0x10 Debug/pstorage.o
+ .text.state_swap_erase_entry_run
+                0x0001d358       0x20 Debug/pstorage.o
+ .text.pstorage_sys_event_handler
+                0x0001d378       0x64 Debug/pstorage.o
+                0x0001d378                pstorage_sys_event_handler
+ .text.pstorage_init
+                0x0001d3dc       0x84 Debug/pstorage.o
+                0x0001d3dc                pstorage_init
+ .text.pstorage_register
+                0x0001d460       0xc8 Debug/pstorage.o
+                0x0001d460                pstorage_register
+ .text.pstorage_block_identifier_get
+                0x0001d528       0x4c Debug/pstorage.o
+                0x0001d528                pstorage_block_identifier_get
+ .text.pstorage_store
+                0x0001d574       0x7c Debug/pstorage.o
+                0x0001d574                pstorage_store
+ .text.pstorage_update
+                0x0001d5f0       0x7c Debug/pstorage.o
+                0x0001d5f0                pstorage_update
+ .text.pstorage_load
+                0x0001d66c       0x98 Debug/pstorage.o
+                0x0001d66c                pstorage_load
+ .text.pstorage_clear
+                0x0001d704       0x88 Debug/pstorage.o
+                0x0001d704                pstorage_clear
+ .text.pstorage_access_status_get
+                0x0001d78c       0x24 Debug/pstorage.o
+                0x0001d78c                pstorage_access_status_get
+ .text.detection_delay_timeout_handler
+                0x0001d7b0       0x70 Debug/app_button.o
+ .text.gpiote_event_handler
+                0x0001d820       0x60 Debug/app_button.o
+ .text.app_button_init
+                0x0001d880       0x90 Debug/app_button.o
+                0x0001d880                app_button_init
+ .text.app_button_enable
+                0x0001d910       0x2c Debug/app_button.o
+                0x0001d910                app_button_enable
+ .text.alert_timer_handler
+                0x0001d93c       0x28 Debug/bsp.o
+ .text.bsp_led_indication
+                0x0001d964      0x32c Debug/bsp.o
+ .text.bsp_button_event_handler
+                0x0001dc90       0xb8 Debug/bsp.o
+ .text.button_timer_handler
+                0x0001dd48        0xc Debug/bsp.o
+ .text.leds_timer_handler
+                0x0001dd54       0x1c Debug/bsp.o
+ .text.bsp_button_is_pressed
+                0x0001dd70       0x2c Debug/bsp.o
+                0x0001dd70                bsp_button_is_pressed
+ .text.bsp_indication_set
+                0x0001dd9c       0x1c Debug/bsp.o
+                0x0001dd9c                bsp_indication_set
+ .text.bsp_init
+                0x0001ddb8       0xb8 Debug/bsp.o
+                0x0001ddb8                bsp_init
+ .text.bsp_event_to_button_action_assign
+                0x0001de70       0x54 Debug/bsp.o
+                0x0001de70                bsp_event_to_button_action_assign
+ .text.bsp_wakeup_buttons_set
+                0x0001dec4       0x44 Debug/bsp.o
+                0x0001dec4                bsp_wakeup_buttons_set
+ .text.advertising_buttons_configure
+                0x0001df08       0x40 Debug/bsp_btn_ble.o
+ .text.bsp_btn_ble_sleep_mode_prepare
+                0x0001df48       0x18 Debug/bsp_btn_ble.o
+                0x0001df48                bsp_btn_ble_sleep_mode_prepare
+ .text.bsp_btn_ble_on_ble_evt
+                0x0001df60       0x84 Debug/bsp_btn_ble.o
+                0x0001df60                bsp_btn_ble_on_ble_evt
+ .text.bsp_btn_ble_init
+                0x0001dfe4       0x5c Debug/bsp_btn_ble.o
+                0x0001dfe4                bsp_btn_ble_init
+ .text.sd_ble_gattc_primary_services_discover
+                0x0001e040        0x4 Debug/ble_db_discovery.o
+ .text.sd_ble_gattc_characteristics_discover
+                0x0001e044        0x4 Debug/ble_db_discovery.o
+ .text.sd_ble_gattc_descriptors_discover
+                0x0001e048        0x4 Debug/ble_db_discovery.o
+ .text.registered_handler_get
+                0x0001e04c       0x38 Debug/ble_db_discovery.o
+ .text.pending_user_evts_send
+                0x0001e084       0x34 Debug/ble_db_discovery.o
+ .text.discovery_error_evt_trigger
+                0x0001e0b8       0x58 Debug/ble_db_discovery.o
+ .text.discovery_complete_evt_trigger
+                0x0001e110       0x78 Debug/ble_db_discovery.o
+ .text.characteristics_discover
+                0x0001e188       0x46 Debug/ble_db_discovery.o
+ *fill*         0x0001e1ce        0x2 
+ .text.on_srv_disc_completion
+                0x0001e1d0       0x70 Debug/ble_db_discovery.o
+ .text.descriptors_discover
+                0x0001e240       0xae Debug/ble_db_discovery.o
+ *fill*         0x0001e2ee        0x2 
+ .text.ble_db_discovery_init
+                0x0001e2f0       0x20 Debug/ble_db_discovery.o
+                0x0001e2f0                ble_db_discovery_init
+ .text.ble_db_discovery_evt_register
+                0x0001e310       0x50 Debug/ble_db_discovery.o
+                0x0001e310                ble_db_discovery_evt_register
+ .text.ble_db_discovery_start
+                0x0001e360       0x68 Debug/ble_db_discovery.o
+                0x0001e360                ble_db_discovery_start
+ .text.ble_db_discovery_on_ble_evt
+                0x0001e3c8      0x1d4 Debug/ble_db_discovery.o
+                0x0001e3c8                ble_db_discovery_on_ble_evt
+ .text.sd_ble_gattc_read
+                0x0001e59c        0x4 Debug/ble_hrs_c.o
+ .text.sd_ble_gattc_write
+                0x0001e5a0        0x4 Debug/ble_hrs_c.o
+ .text.tx_buffer_process
+                0x0001e5a4       0x48 Debug/ble_hrs_c.o
+ .text.db_discover_evt_handler
+                0x0001e5ec       0x5c Debug/ble_hrs_c.o
+ .text.ble_hrs_c_init
+                0x0001e648       0x40 Debug/ble_hrs_c.o
+                0x0001e648                ble_hrs_c_init
+ .text.ble_hrs_c_on_ble_evt
+                0x0001e688       0x4e Debug/ble_hrs_c.o
+                0x0001e688                ble_hrs_c_on_ble_evt
+ *fill*         0x0001e6d6        0x2 
+ .text.ble_hrs_c_hrm_notif_enable
+                0x0001e6d8       0x4c Debug/ble_hrs_c.o
+                0x0001e6d8                ble_hrs_c_hrm_notif_enable
+ .text.sd_ble_gattc_read
+                0x0001e724        0x4 Debug/ble_bas_c.o
+ .text.sd_ble_gattc_write
+                0x0001e728        0x4 Debug/ble_bas_c.o
+ .text.tx_buffer_process
+                0x0001e72c       0x48 Debug/ble_bas_c.o
+ .text.db_discovery_evt_handler
+                0x0001e774       0x60 Debug/ble_bas_c.o
+ .text.ble_bas_c_init
+                0x0001e7d4       0x40 Debug/ble_bas_c.o
+                0x0001e7d4                ble_bas_c_init
+ .text.ble_bas_c_on_ble_evt
+                0x0001e814       0x5a Debug/ble_bas_c.o
+                0x0001e814                ble_bas_c_on_ble_evt
+ *fill*         0x0001e86e        0x2 
+ .text.ble_bas_c_bl_notif_enable
+                0x0001e870       0x4c Debug/ble_bas_c.o
+                0x0001e870                ble_bas_c_bl_notif_enable
+ .text.ble_bas_c_bl_read
+                0x0001e8bc       0x34 Debug/ble_bas_c.o
+                0x0001e8bc                ble_bas_c_bl_read
+ .text.sd_ble_gap_authenticate
+                0x0001e8f0        0x4 Debug/device_manager_central.o
+ .text.sd_ble_gap_sec_params_reply
+                0x0001e8f4        0x4 Debug/device_manager_central.o
+ .text.sd_ble_gap_encrypt
+                0x0001e8f8        0x4 Debug/device_manager_central.o
+ .text.sd_ble_gatts_sys_attr_set
+                0x0001e8fc        0x4 Debug/device_manager_central.o
+ .text.sd_ble_gatts_sys_attr_get
+                0x0001e900        0x4 Debug/device_manager_central.o
+ .text.storage_operation_dummy_handler
+                0x0001e904        0x4 Debug/device_manager_central.o
+ .text.no_service_context_store
+                0x0001e908        0x4 Debug/device_manager_central.o
+ .text.gattc_context_store
+                0x0001e90c        0x4 Debug/device_manager_central.o
+ .text.no_service_context_load
+                0x0001e910        0x4 Debug/device_manager_central.o
+ .text.gattc_context_load
+                0x0001e914        0x4 Debug/device_manager_central.o
+ .text.no_service_context_apply
+                0x0001e918        0x4 Debug/device_manager_central.o
+ .text.gatts_context_apply
+                0x0001e91c       0x50 Debug/device_manager_central.o
+ .text.gattc_context_apply
+                0x0001e96c        0x4 Debug/device_manager_central.o
+ .text.gattsc_context_apply
+                0x0001e970        0x8 Debug/device_manager_central.o
+ .text.device_context_store
+                0x0001e978       0xb8 Debug/device_manager_central.o
+ .text.gatts_context_store
+                0x0001ea30       0xa8 Debug/device_manager_central.o
+ .text.gattsc_context_store
+                0x0001ead8        0x8 Debug/device_manager_central.o
+ .text.gatts_context_load
+                0x0001eae0       0x30 Debug/device_manager_central.o
+ .text.gattsc_context_load
+                0x0001eb10        0x8 Debug/device_manager_central.o
+ .text.dm_pstorage_cb_handler
+                0x0001eb18      0x160 Debug/device_manager_central.o
+ .text.peer_instance_init
+                0x0001ec78       0x4c Debug/device_manager_central.o
+ .text.initiate_security_request
+                0x0001ecc4       0x58 Debug/device_manager_central.o
+                0x0001ecc4                initiate_security_request
+ .text.dm_init  0x0001ed1c       0xd8 Debug/device_manager_central.o
+                0x0001ed1c                dm_init
+ .text.dm_register
+                0x0001edf4       0x5c Debug/device_manager_central.o
+                0x0001edf4                dm_register
+ .text.dm_security_setup_req
+                0x0001ee50       0xf4 Debug/device_manager_central.o
+                0x0001ee50                dm_security_setup_req
+ .text.dm_whitelist_create
+                0x0001ef44       0xa4 Debug/device_manager_central.o
+                0x0001ef44                dm_whitelist_create
+ .text.dm_ble_evt_handler
+                0x0001efe8      0x2e0 Debug/device_manager_central.o
+                0x0001efe8                dm_ble_evt_handler
+ .text.SystemInit
+                0x0001f2c8       0x8c Debug/system_nrf51.o
+                0x0001f2c8                SystemInit
+ .text.sd_nvic_EnableIRQ
+                0x0001f354        0x4 Debug/softdevice_handler.o
+ .text.sd_evt_get
+                0x0001f358        0x4 Debug/softdevice_handler.o
+ .text.sd_softdevice_enable
+                0x0001f35c        0x4 Debug/softdevice_handler.o
+ .text.sd_ble_enable
+                0x0001f360        0x4 Debug/softdevice_handler.o
+ .text.sd_ble_evt_get
+                0x0001f364        0x4 Debug/softdevice_handler.o
+ .text.softdevice_fault_handler
+                0x0001f368        0x8 Debug/softdevice_handler.o
+                0x0001f368                softdevice_fault_handler
+ .text.intern_softdevice_events_execute
+                0x0001f370       0xac Debug/softdevice_handler.o
+                0x0001f370                intern_softdevice_events_execute
+ .text.softdevice_handler_init
+                0x0001f41c       0x54 Debug/softdevice_handler.o
+                0x0001f41c                softdevice_handler_init
+ .text.softdevice_ble_evt_handler_set
+                0x0001f470       0x14 Debug/softdevice_handler.o
+                0x0001f470                softdevice_ble_evt_handler_set
+ .text.softdevice_sys_evt_handler_set
+                0x0001f484       0x14 Debug/softdevice_handler.o
+                0x0001f484                softdevice_sys_evt_handler_set
+ .text.SWI2_IRQHandler
+                0x0001f498       0x20 Debug/softdevice_handler.o
+                0x0001f498                SWI2_IRQHandler
+ .text.softdevice_enable_get_default_config
+                0x0001f4b8       0x2e Debug/softdevice_handler.o
+                0x0001f4b8                softdevice_enable_get_default_config
+ *fill*         0x0001f4e6        0x2 
+ .text.sd_check_ram_start
+                0x0001f4e8       0x48 Debug/softdevice_handler.o
+                0x0001f4e8                sd_check_ram_start
+ .text.softdevice_enable
+                0x0001f530       0x74 Debug/softdevice_handler.o
+                0x0001f530                softdevice_enable
+ .text          0x0001f5a4       0x54 Debug/gcc_startup_nrf51.o
+                0x0001f5a4                Reset_Handler
+                0x0001f5ec                NMI_Handler
+                0x0001f5ee                HardFault_Handler
+                0x0001f5f0                SVC_Handler
+                0x0001f5f2                PendSV_Handler
+                0x0001f5f4                SysTick_Handler
+                0x0001f5f6                RTC0_IRQHandler
+                0x0001f5f6                POWER_CLOCK_IRQHandler
+                0x0001f5f6                SPI0_TWI0_IRQHandler
+                0x0001f5f6                LPCOMP_IRQHandler
+                0x0001f5f6                SWI4_IRQHandler
+                0x0001f5f6                TEMP_IRQHandler
+                0x0001f5f6                QDEC_IRQHandler
+                0x0001f5f6                SWI5_IRQHandler
+                0x0001f5f6                TIMER0_IRQHandler
+                0x0001f5f6                RADIO_IRQHandler
+                0x0001f5f6                TIMER1_IRQHandler
+                0x0001f5f6                ECB_IRQHandler
+                0x0001f5f6                Default_Handler
+                0x0001f5f6                ADC_IRQHandler
+                0x0001f5f6                SWI3_IRQHandler
+                0x0001f5f6                CCM_AAR_IRQHandler
+                0x0001f5f6                WDT_IRQHandler
+                0x0001f5f6                TIMER2_IRQHandler
+                0x0001f5f6                RNG_IRQHandler
+                0x0001f5f6                SPI1_TWI1_IRQHandler
+                0x0001f5f6                SWI1_IRQHandler
+ .text          0x0001f5f8       0x14 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uqi.o)
+                0x0001f5f8                __gnu_thumb1_case_uqi
+ .text          0x0001f60c       0x14 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uhi.o)
+                0x0001f60c                __gnu_thumb1_case_uhi
+ .text          0x0001f620      0x120 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x0001f620                __aeabi_uidiv
+                0x0001f620                __udivsi3
+                0x0001f72c                __aeabi_uidivmod
+ .text          0x0001f740      0x1e0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+                0x0001f740                __divsi3
+                0x0001f740                __aeabi_idiv
+                0x0001f90c                __aeabi_idivmod
+ .text          0x0001f920        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x0001f920                __aeabi_idiv0
+                0x0001f920                __aeabi_ldiv0
+ .text.memcmp   0x0001f924       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcmp.o)
+                0x0001f924                memcmp
+ .text.memcpy   0x0001f942       0x12 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcpy.o)
+                0x0001f942                memcpy
+ .text.strcpy   0x0001f954       0x10 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strcpy.o)
+                0x0001f954                strcpy
+ *(.init)
+ .init          0x0001f964        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x0001f964                _init
+ .init          0x0001f968        0x8 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ *(.fini)
+ .fini          0x0001f970        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x0001f970                _fini
+ .fini          0x0001f974        0x8 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+ *(.rodata*)
+ .rodata.str1.1
+                0x0001f97c        0x2 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+ *fill*         0x0001f97e        0x2 
+ .rodata._global_impure_ptr
+                0x0001f980        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+                0x0001f980                _global_impure_ptr
+ .rodata.m_connection_param
+                0x0001f984        0x8 Debug/main.o
+ .rodata.str1.1
+                0x0001f98c      0x45c Debug/main.o
+ .rodata.str1.1
+                0x0001fde8       0x14 Debug/SEGGER_RTT.o
+ .rodata._aV2C.4323
+                0x0001fdfc       0x10 Debug/SEGGER_RTT_printf.o
+ .rodata.str1.1
+                0x0001fe0c        0xd Debug/nrf_log.o
+ *fill*         0x0001fe19        0x3 
+ .rodata.swap_sub_state_sm_lut.6729
+                0x0001fe1c       0x14 Debug/pstorage.o
+ .rodata.swap_sub_state_sm_lut.6804
+                0x0001fe30       0x14 Debug/pstorage.o
+ .rodata.m_detection_delay_timer_id
+                0x0001fe44        0x4 Debug/app_button.o
+ .rodata.m_button_timer_id
+                0x0001fe48        0x4 Debug/bsp.o
+ .rodata.m_buttons_list
+                0x0001fe4c       0x10 Debug/bsp.o
+ .rodata.m_leds_timer_id
+                0x0001fe5c        0x4 Debug/bsp.o
+ .rodata.app_buttons
+                0x0001fe60       0x20 Debug/bsp.o
+ .rodata.m_alert_timer_id
+                0x0001fe80        0x4 Debug/bsp.o
+ .rodata.m_service_context_store
+                0x0001fe84       0x10 Debug/device_manager_central.o
+                0x0001fe84                m_service_context_store
+ .rodata.m_service_context_load
+                0x0001fe94       0x10 Debug/device_manager_central.o
+                0x0001fe94                m_service_context_load
+ .rodata.m_service_context_apply
+                0x0001fea4       0x10 Debug/device_manager_central.o
+                0x0001fea4                m_service_context_apply
+ .rodata.m_context_init_len
+                0x0001feb4        0x4 Debug/device_manager_central.o
+                0x0001feb4                m_context_init_len
+ .rodata.str1.1
+                0x0001feb8       0xf7 Debug/softdevice_handler.o
+ *(.eh_frame*)
+ *fill*         0x0001ffaf        0x1 
+ .eh_frame      0x0001ffb0        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+                0x0001ffb0                . = ALIGN (0x4)
+
+.glue_7         0x0001ffb0        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x0001ffb0        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x0001ffb0        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x0001ffb0        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x0001ffb0        0x0
+ .iplt          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+
+.ARM.extab      0x0001ffb0        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0001ffb0                . = ALIGN (0x4)
+                0x0001ffb0                __exidx_start = .
+
+.ARM.exidx      0x0001ffb0        0x8
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx     0x0001ffb0        0x8 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.exidx     0x0001ffb8        0x0 Debug/gcc_startup_nrf51.o
+                                  0x8 (size before relaxing)
+                0x0001ffb8                . = ALIGN (0x4)
+                0x0001ffb8                __exidx_end = .
+                0x0001ffb8                __etext = .
+
+.rel.dyn        0x0001ffb8        0x0
+ .rel.iplt      0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+
+.data           0x20001d80       0x68 load address 0x0001ffb8
+                0x20001d80                __data_start__ = .
+ *(vtable)
+ *(.data*)
+ .data.impure_data
+                0x20001d80       0x60 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+                0x20001de0                . = ALIGN (0x4)
+                0x20001de0                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x20001de0                PROVIDE (__preinit_array_end, .)
+                0x20001de0                . = ALIGN (0x4)
+                0x20001de0                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x20001de0        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+                0x20001de4                PROVIDE (__init_array_end, .)
+                0x20001de4                . = ALIGN (0x4)
+                0x20001de4                PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+ .fini_array    0x20001de4        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+                0x20001de8                PROVIDE (__fini_array_end, .)
+ *(.jcr)
+ .jcr           0x20001de8        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+                0x20001de8                . = ALIGN (0x4)
+                0x20001de8                __data_end__ = .
+
+.igot.plt       0x20001de8        0x0 load address 0x00020020
+ .igot.plt      0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+
+.bss            0x20001de8     0x1060 load address 0x00020020
+                0x20001de8                . = ALIGN (0x4)
+                0x20001de8                __bss_start__ = .
+ *(.bss*)
+ .bss           0x20001de8       0x1c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .bss.BLE_EVT_BUFFER.8552
+                0x20001e04       0x48 Debug/main.o
+ .bss.m_whitelist_temporarily_disabled
+                0x20001e4c        0x1 Debug/main.o
+ .bss.m_dm_app_id
+                0x20001e4d        0x1 Debug/main.o
+ *fill*         0x20001e4e        0x2 
+ .bss.m_ble_bas_c
+                0x20001e50        0xc Debug/main.o
+ .bss.m_peer_count
+                0x20001e5c        0x1 Debug/main.o
+ .bss.m_dm_device_handle
+                0x20001e5d        0x4 Debug/main.o
+ *fill*         0x20001e61        0x3 
+ .bss.m_scan_param
+                0x20001e64       0x10 Debug/main.o
+ .bss.m_memory_access_in_progress
+                0x20001e74        0x1 Debug/main.o
+ *fill*         0x20001e75        0x3 
+ .bss.APP_TIMER_BUF.8658
+                0x20001e78      0x138 Debug/main.o
+ .bss.m_conn_handle
+                0x20001fb0        0x2 Debug/main.o
+ .bss.m_ble_db_discovery
+                0x20001fb2       0x7c Debug/main.o
+ *fill*         0x2000202e        0x2 
+ .bss.m_ble_hrs_c
+                0x20002030        0xc Debug/main.o
+ .bss._acDownBuffer
+                0x2000203c       0x10 Debug/SEGGER_RTT.o
+ .bss._acUpBuffer
+                0x2000204c      0x400 Debug/SEGGER_RTT.o
+ .bss.m_cb      0x2000244c       0x1c Debug/nrf_drv_uart.o
+ .bss.buf_down  0x20002468       0x10 Debug/nrf_log.o
+ .bss.buf_normal_up
+                0x20002478      0x400 Debug/nrf_log.o
+ .bss.initialized.5845
+                0x20002878        0x1 Debug/nrf_log.o
+ *fill*         0x20002879        0x3 
+ .bss.m_ticks_latest
+                0x2000287c        0x4 Debug/app_timer.o
+ .bss.mp_timer_id_head
+                0x20002880        0x4 Debug/app_timer.o
+ .bss.m_evt_schedule_func
+                0x20002884        0x4 Debug/app_timer.o
+ .bss.m_user_array_size
+                0x20002888        0x1 Debug/app_timer.o
+ *fill*         0x20002889        0x3 
+ .bss.mp_users  0x2000288c        0x4 Debug/app_timer.o
+ .bss.m_ticks_elapsed_q_read_ind
+                0x20002890        0x1 Debug/app_timer.o
+ .bss.m_ticks_elapsed_q_write_ind
+                0x20002891        0x1 Debug/app_timer.o
+ .bss.m_rtc1_reset
+                0x20002892        0x1 Debug/app_timer.o
+ *fill*         0x20002893        0x1 
+ .bss.m_ticks_elapsed
+                0x20002894        0x8 Debug/app_timer.o
+ .bss.m_rtc1_running
+                0x2000289c        0x1 Debug/app_timer.o
+ *fill*         0x2000289d        0x3 
+ .bss.m_cb      0x200028a0       0x48 Debug/nrf_drv_gpiote.o
+ .bss.m_current_page_id
+                0x200028e8        0x4 Debug/pstorage.o
+ .bss.m_tail_word_size
+                0x200028ec        0x4 Debug/pstorage.o
+ .bss.m_app_table
+                0x200028f0        0xc Debug/pstorage.o
+ .bss.m_next_app_instance
+                0x200028fc        0x2 Debug/pstorage.o
+ *fill*         0x200028fe        0x2 
+ .bss.m_flags   0x20002900        0x4 Debug/pstorage.o
+ .bss.m_swap_sub_state
+                0x20002904        0x1 Debug/pstorage.o
+ .bss.m_state   0x20002905        0x1 Debug/pstorage.o
+ *fill*         0x20002906        0x2 
+ .bss.m_next_page_addr
+                0x20002908        0x4 Debug/pstorage.o
+ .bss.m_app_data_size
+                0x2000290c        0x4 Debug/pstorage.o
+ .bss.m_num_of_command_retries
+                0x20002910        0x4 Debug/pstorage.o
+ .bss.m_head_word_size
+                0x20002914        0x4 Debug/pstorage.o
+ .bss.m_cmd_queue
+                0x20002918       0xcc Debug/pstorage.o
+ .bss.m_num_of_bytes_written
+                0x200029e4        0x4 Debug/pstorage.o
+ .bss.m_detection_delay
+                0x200029e8        0x4 Debug/app_button.o
+ .bss.mp_buttons
+                0x200029ec        0x4 Debug/app_button.o
+ .bss.m_button_count
+                0x200029f0        0x1 Debug/app_button.o
+ *fill*         0x200029f1        0x3 
+ .bss.m_detection_delay_timer_id_data
+                0x200029f4       0x20 Debug/app_button.o
+ .bss.m_pin_state
+                0x20002a14        0x4 Debug/app_button.o
+ .bss.m_pin_transition
+                0x20002a18        0x4 Debug/app_button.o
+ .bss.m_indication_type
+                0x20002a1c        0x4 Debug/bsp.o
+ .bss.m_registered_callback
+                0x20002a20        0x4 Debug/bsp.o
+ .bss.release_event_at_push.6027
+                0x20002a24        0x4 Debug/bsp.o
+ .bss.m_alert_mask
+                0x20002a28        0x4 Debug/bsp.o
+ .bss.m_app_ticks_per_100ms
+                0x20002a2c        0x4 Debug/bsp.o
+ .bss.m_leds_timer_id_data
+                0x20002a30       0x20 Debug/bsp.o
+ .bss.m_button_timer_id_data
+                0x20002a50       0x20 Debug/bsp.o
+ .bss.m_stable_state
+                0x20002a70        0x1 Debug/bsp.o
+ *fill*         0x20002a71        0x3 
+ .bss.m_alert_timer_id_data
+                0x20002a74       0x20 Debug/bsp.o
+ .bss.current_long_push_pin_no.6026
+                0x20002a94        0x1 Debug/bsp.o
+ .bss.m_events_list
+                0x20002a95        0xc Debug/bsp.o
+ *fill*         0x20002aa1        0x3 
+ .bss.m_error_handler
+                0x20002aa4        0x4 Debug/bsp_btn_ble.o
+ .bss.m_num_connections
+                0x20002aa8        0x4 Debug/bsp_btn_ble.o
+ .bss.m_pending_user_evts
+                0x20002aac       0x88 Debug/ble_db_discovery.o
+ .bss.m_pending_usr_evt_index
+                0x20002b34        0x4 Debug/ble_db_discovery.o
+ .bss.m_registered_handlers
+                0x20002b38       0x10 Debug/ble_db_discovery.o
+ .bss.m_initialized
+                0x20002b48        0x1 Debug/ble_db_discovery.o
+ *fill*         0x20002b49        0x3 
+ .bss.m_num_of_handlers_reg
+                0x20002b4c        0x4 Debug/ble_db_discovery.o
+ .bss.m_tx_insert_index
+                0x20002b50        0x4 Debug/ble_hrs_c.o
+ .bss.m_tx_index
+                0x20002b54        0x4 Debug/ble_hrs_c.o
+ .bss.m_tx_buffer
+                0x20002b58       0xa0 Debug/ble_hrs_c.o
+ .bss.mp_ble_hrs_c
+                0x20002bf8        0x4 Debug/ble_hrs_c.o
+ .bss.m_tx_insert_index
+                0x20002bfc        0x4 Debug/ble_bas_c.o
+ .bss.m_tx_index
+                0x20002c00        0x4 Debug/ble_bas_c.o
+ .bss.m_tx_buffer
+                0x20002c04       0xa0 Debug/ble_bas_c.o
+ .bss.mp_ble_bas_c
+                0x20002ca4        0x4 Debug/ble_bas_c.o
+ .bss.m_app_context_table
+                0x20002ca8       0x1c Debug/device_manager_central.o
+ .bss.m_module_initialized
+                0x20002cc4        0x1 Debug/device_manager_central.o
+ *fill*         0x20002cc5        0x1 
+ .bss.m_connection_table
+                0x20002cc6        0xc Debug/device_manager_central.o
+ .bss.m_peer_table
+                0x20002cd2       0xa8 Debug/device_manager_central.o
+ .bss.m_bond_table
+                0x20002d7a       0x1c Debug/device_manager_central.o
+ *fill*         0x20002d96        0x2 
+ .bss.m_gatts_table
+                0x20002d98        0xc Debug/device_manager_central.o
+ .bss.m_application_table
+                0x20002da4        0xc Debug/device_manager_central.o
+ .bss.m_peer_addr_update
+                0x20002db0        0x4 Debug/device_manager_central.o
+ .bss.m_storage_handle
+                0x20002db4        0x8 Debug/device_manager_central.o
+ .bss.m_softdevice_enabled
+                0x20002dbc        0x1 Debug/softdevice_handler.o
+ *fill*         0x20002dbd        0x1 
+ .bss.m_ble_evt_buffer_size
+                0x20002dbe        0x2 Debug/softdevice_handler.o
+ .bss.mp_ble_evt_buffer
+                0x20002dc0        0x4 Debug/softdevice_handler.o
+ .bss.m_sys_evt_handler
+                0x20002dc4        0x4 Debug/softdevice_handler.o
+ .bss.m_ble_evt_handler
+                0x20002dc8        0x4 Debug/softdevice_handler.o
+ .bss.m_evt_schedule_func
+                0x20002dcc        0x4 Debug/softdevice_handler.o
+ *(COMMON)
+ COMMON         0x20002dd0       0x78 Debug/SEGGER_RTT.o
+                0x20002dd0                _SEGGER_RTT
+                0x20002e48                . = ALIGN (0x4)
+                0x20002e48                __bss_end__ = .
+
+.heap           0x20002e48        0x0
+                0x20002e48                __end__ = .
+                0x20002e48                end = __end__
+ *(.heap*)
+ .heap          0x20002e48        0x0 Debug/gcc_startup_nrf51.o
+                0x20002e48                __HeapLimit = .
+
+.stack_dummy    0x20002e48      0x800
+ *(.stack*)
+ .stack         0x20002e48      0x800 Debug/gcc_startup_nrf51.o
+                0x20008000                __StackTop = (ORIGIN (RAM) + 0x6280)
+                0x20007800                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
+                0x20008000                PROVIDE (__stack, __StackTop)
+                0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
+OUTPUT(Debug/btle_central.out elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x28
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x00000091       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000000bd       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x000000e9       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000115       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+ .ARM.attributes
+                0x00000141       0x31 Debug/main.o
+ .ARM.attributes
+                0x00000172       0x31 Debug/SEGGER_RTT.o
+ .ARM.attributes
+                0x000001a3       0x31 Debug/SEGGER_RTT_printf.o
+ .ARM.attributes
+                0x000001d4       0x31 Debug/nrf_drv_uart.o
+ .ARM.attributes
+                0x00000205       0x31 Debug/nrf_log.o
+ .ARM.attributes
+                0x00000236       0x31 Debug/app_error.o
+ .ARM.attributes
+                0x00000267       0x31 Debug/app_timer.o
+ .ARM.attributes
+                0x00000298       0x31 Debug/nrf_drv_common.o
+ .ARM.attributes
+                0x000002c9       0x31 Debug/nrf_drv_gpiote.o
+ .ARM.attributes
+                0x000002fa       0x31 Debug/pstorage.o
+ .ARM.attributes
+                0x0000032b       0x31 Debug/app_button.o
+ .ARM.attributes
+                0x0000035c       0x31 Debug/bsp.o
+ .ARM.attributes
+                0x0000038d       0x31 Debug/bsp_btn_ble.o
+ .ARM.attributes
+                0x000003be       0x31 Debug/ble_db_discovery.o
+ .ARM.attributes
+                0x000003ef       0x31 Debug/ble_hrs_c.o
+ .ARM.attributes
+                0x00000420       0x31 Debug/ble_bas_c.o
+ .ARM.attributes
+                0x00000451       0x31 Debug/device_manager_central.o
+ .ARM.attributes
+                0x00000482       0x31 Debug/system_nrf51.o
+ .ARM.attributes
+                0x000004b3       0x31 Debug/softdevice_handler.o
+ .ARM.attributes
+                0x000004e4       0x1b Debug/gcc_startup_nrf51.o
+ .ARM.attributes
+                0x000004ff       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uqi.o)
+ .ARM.attributes
+                0x0000051d       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_thumb1_case_uhi.o)
+ .ARM.attributes
+                0x0000053b       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000559       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x00000577       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000595       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcmp.o)
+ .ARM.attributes
+                0x000005c1       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcpy.o)
+ .ARM.attributes
+                0x000005ed       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strcpy.o)
+ .ARM.attributes
+                0x00000619       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 Debug/main.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 Debug/SEGGER_RTT.o
+ .comment       0x00000000       0x71 Debug/SEGGER_RTT_printf.o
+ .comment       0x00000000       0x71 Debug/nrf_drv_uart.o
+ .comment       0x00000000       0x71 Debug/nrf_log.o
+ .comment       0x00000000       0x71 Debug/app_error.o
+ .comment       0x00000000       0x71 Debug/app_timer.o
+ .comment       0x00000000       0x71 Debug/nrf_drv_common.o
+ .comment       0x00000000       0x71 Debug/nrf_drv_gpiote.o
+ .comment       0x00000000       0x71 Debug/pstorage.o
+ .comment       0x00000000       0x71 Debug/app_button.o
+ .comment       0x00000000       0x71 Debug/bsp.o
+ .comment       0x00000000       0x71 Debug/bsp_btn_ble.o
+ .comment       0x00000000       0x71 Debug/ble_db_discovery.o
+ .comment       0x00000000       0x71 Debug/ble_hrs_c.o
+ .comment       0x00000000       0x71 Debug/ble_bas_c.o
+ .comment       0x00000000       0x71 Debug/device_manager_central.o
+ .comment       0x00000000       0x71 Debug/system_nrf51.o
+ .comment       0x00000000       0x71 Debug/softdevice_handler.o
+
+.debug_frame    0x00000000     0x1c24
+ .debug_frame   0x00000000       0x28 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-exit.o)
+ .debug_frame   0x00000028       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00000054       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000074       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+ .debug_frame   0x00000094      0x1a0 Debug/main.o
+ .debug_frame   0x00000234      0x28c Debug/SEGGER_RTT.o
+ .debug_frame   0x000004c0       0x88 Debug/SEGGER_RTT_printf.o
+ .debug_frame   0x00000548      0x170 Debug/nrf_drv_uart.o
+ .debug_frame   0x000006b8      0x118 Debug/nrf_log.o
+ .debug_frame   0x000007d0       0x7c Debug/app_error.o
+ .debug_frame   0x0000084c      0x144 Debug/app_timer.o
+ .debug_frame   0x00000990       0x30 Debug/nrf_drv_common.o
+ .debug_frame   0x000009c0      0x210 Debug/nrf_drv_gpiote.o
+ .debug_frame   0x00000bd0      0x3e8 Debug/pstorage.o
+ .debug_frame   0x00000fb8       0xbc Debug/app_button.o
+ .debug_frame   0x00001074      0x16c Debug/bsp.o
+ .debug_frame   0x000011e0       0x78 Debug/bsp_btn_ble.o
+ .debug_frame   0x00001258      0x198 Debug/ble_db_discovery.o
+ .debug_frame   0x000013f0       0xc0 Debug/ble_hrs_c.o
+ .debug_frame   0x000014b0       0xe0 Debug/ble_bas_c.o
+ .debug_frame   0x00001590      0x424 Debug/device_manager_central.o
+ .debug_frame   0x000019b4       0x38 Debug/system_nrf51.o
+ .debug_frame   0x000019ec      0x184 Debug/softdevice_handler.o
+ .debug_frame   0x00001b70       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00001b90       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+ .debug_frame   0x00001bb0       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcmp.o)
+ .debug_frame   0x00001bdc       0x28 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x00001c04       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a(lib_a-strcpy.o)
+
+.debug_info     0x00000000    0x1afb1
+ .debug_info    0x00000000     0x3c89 Debug/main.o
+ .debug_info    0x00003c89      0xe03 Debug/SEGGER_RTT.o
+ .debug_info    0x00004a8c      0x566 Debug/SEGGER_RTT_printf.o
+ .debug_info    0x00004ff2     0x21d7 Debug/nrf_drv_uart.o
+ .debug_info    0x000071c9      0x58a Debug/nrf_log.o
+ .debug_info    0x00007753      0x444 Debug/app_error.o
+ .debug_info    0x00007b97     0x1a2a Debug/app_timer.o
+ .debug_info    0x000095c1      0x3fd Debug/nrf_drv_common.o
+ .debug_info    0x000099be     0x1b61 Debug/nrf_drv_gpiote.o
+ .debug_info    0x0000b51f     0x1d25 Debug/pstorage.o
+ .debug_info    0x0000d244      0x6a7 Debug/app_button.o
+ .debug_info    0x0000d8eb      0xca5 Debug/bsp.o
+ .debug_info    0x0000e590     0x15e3 Debug/bsp_btn_ble.o
+ .debug_info    0x0000fb73     0x20ac Debug/ble_db_discovery.o
+ .debug_info    0x00011c1f     0x1a99 Debug/ble_hrs_c.o
+ .debug_info    0x000136b8     0x1af2 Debug/ble_bas_c.o
+ .debug_info    0x000151aa     0x3b8f Debug/device_manager_central.o
+ .debug_info    0x00018d39      0x1be Debug/system_nrf51.o
+ .debug_info    0x00018ef7     0x20ba Debug/softdevice_handler.o
+
+.debug_abbrev   0x00000000     0x3b96
+ .debug_abbrev  0x00000000      0x483 Debug/main.o
+ .debug_abbrev  0x00000483      0x29d Debug/SEGGER_RTT.o
+ .debug_abbrev  0x00000720      0x274 Debug/SEGGER_RTT_printf.o
+ .debug_abbrev  0x00000994      0x3e9 Debug/nrf_drv_uart.o
+ .debug_abbrev  0x00000d7d      0x211 Debug/nrf_log.o
+ .debug_abbrev  0x00000f8e      0x17d Debug/app_error.o
+ .debug_abbrev  0x0000110b      0x42b Debug/app_timer.o
+ .debug_abbrev  0x00001536      0x145 Debug/nrf_drv_common.o
+ .debug_abbrev  0x0000167b      0x453 Debug/nrf_drv_gpiote.o
+ .debug_abbrev  0x00001ace      0x41f Debug/pstorage.o
+ .debug_abbrev  0x00001eed      0x1ee Debug/app_button.o
+ .debug_abbrev  0x000020db      0x331 Debug/bsp.o
+ .debug_abbrev  0x0000240c      0x2ca Debug/bsp_btn_ble.o
+ .debug_abbrev  0x000026d6      0x441 Debug/ble_db_discovery.o
+ .debug_abbrev  0x00002b17      0x35b Debug/ble_hrs_c.o
+ .debug_abbrev  0x00002e72      0x36a Debug/ble_bas_c.o
+ .debug_abbrev  0x000031dc      0x441 Debug/device_manager_central.o
+ .debug_abbrev  0x0000361d      0x10a Debug/system_nrf51.o
+ .debug_abbrev  0x00003727      0x46f Debug/softdevice_handler.o
+
+.debug_loc      0x00000000     0xa01e
+ .debug_loc     0x00000000      0xb72 Debug/main.o
+ .debug_loc     0x00000b72      0xf33 Debug/SEGGER_RTT.o
+ .debug_loc     0x00001aa5      0x661 Debug/SEGGER_RTT_printf.o
+ .debug_loc     0x00002106      0xcd8 Debug/nrf_drv_uart.o
+ .debug_loc     0x00002dde      0x2ee Debug/nrf_log.o
+ .debug_loc     0x000030cc      0x151 Debug/app_error.o
+ .debug_loc     0x0000321d      0xc0f Debug/app_timer.o
+ .debug_loc     0x00003e2c       0x7b Debug/nrf_drv_common.o
+ .debug_loc     0x00003ea7      0xdd7 Debug/nrf_drv_gpiote.o
+ .debug_loc     0x00004c7e      0xf7f Debug/pstorage.o
+ .debug_loc     0x00005bfd      0x32d Debug/app_button.o
+ .debug_loc     0x00005f2a      0x93e Debug/bsp.o
+ .debug_loc     0x00006868      0x1cf Debug/bsp_btn_ble.o
+ .debug_loc     0x00006a37      0xd9f Debug/ble_db_discovery.o
+ .debug_loc     0x000077d6      0x35e Debug/ble_hrs_c.o
+ .debug_loc     0x00007b34      0x360 Debug/ble_bas_c.o
+ .debug_loc     0x00007e94     0x1c6e Debug/device_manager_central.o
+ .debug_loc     0x00009b02      0x51c Debug/softdevice_handler.o
+
+.debug_aranges  0x00000000      0x9e0
+ .debug_aranges
+                0x00000000       0xa8 Debug/main.o
+ .debug_aranges
+                0x000000a8       0xc8 Debug/SEGGER_RTT.o
+ .debug_aranges
+                0x00000170       0x38 Debug/SEGGER_RTT_printf.o
+ .debug_aranges
+                0x000001a8       0x88 Debug/nrf_drv_uart.o
+ .debug_aranges
+                0x00000230       0x60 Debug/nrf_log.o
+ .debug_aranges
+                0x00000290       0x38 Debug/app_error.o
+ .debug_aranges
+                0x000002c8       0x78 Debug/app_timer.o
+ .debug_aranges
+                0x00000340       0x20 Debug/nrf_drv_common.o
+ .debug_aranges
+                0x00000360       0xc8 Debug/nrf_drv_gpiote.o
+ .debug_aranges
+                0x00000428      0x140 Debug/pstorage.o
+ .debug_aranges
+                0x00000568       0x48 Debug/app_button.o
+ .debug_aranges
+                0x000005b0       0x88 Debug/bsp.o
+ .debug_aranges
+                0x00000638       0x38 Debug/bsp_btn_ble.o
+ .debug_aranges
+                0x00000670       0x90 Debug/ble_db_discovery.o
+ .debug_aranges
+                0x00000700       0x50 Debug/ble_hrs_c.o
+ .debug_aranges
+                0x00000750       0x58 Debug/ble_bas_c.o
+ .debug_aranges
+                0x000007a8      0x170 Debug/device_manager_central.o
+ .debug_aranges
+                0x00000918       0x28 Debug/system_nrf51.o
+ .debug_aranges
+                0x00000940       0xa0 Debug/softdevice_handler.o
+
+.debug_ranges   0x00000000     0x1640
+ .debug_ranges  0x00000000      0x100 Debug/main.o
+ .debug_ranges  0x00000100       0xb8 Debug/SEGGER_RTT.o
+ .debug_ranges  0x000001b8       0x40 Debug/SEGGER_RTT_printf.o
+ .debug_ranges  0x000001f8      0x2c8 Debug/nrf_drv_uart.o
+ .debug_ranges  0x000004c0       0x68 Debug/nrf_log.o
+ .debug_ranges  0x00000528       0x28 Debug/app_error.o
+ .debug_ranges  0x00000550      0x3b8 Debug/app_timer.o
+ .debug_ranges  0x00000908       0x10 Debug/nrf_drv_common.o
+ .debug_ranges  0x00000918      0x400 Debug/nrf_drv_gpiote.o
+ .debug_ranges  0x00000d18      0x328 Debug/pstorage.o
+ .debug_ranges  0x00001040       0x38 Debug/app_button.o
+ .debug_ranges  0x00001078       0xc8 Debug/bsp.o
+ .debug_ranges  0x00001140       0x28 Debug/bsp_btn_ble.o
+ .debug_ranges  0x00001168       0xb0 Debug/ble_db_discovery.o
+ .debug_ranges  0x00001218       0x60 Debug/ble_hrs_c.o
+ .debug_ranges  0x00001278       0x68 Debug/ble_bas_c.o
+ .debug_ranges  0x000012e0      0x288 Debug/device_manager_central.o
+ .debug_ranges  0x00001568       0x30 Debug/system_nrf51.o
+ .debug_ranges  0x00001598       0xa8 Debug/softdevice_handler.o
+
+.debug_line     0x00000000     0x5f0f
+ .debug_line    0x00000000      0x897 Debug/main.o
+ .debug_line    0x00000897      0x47e Debug/SEGGER_RTT.o
+ .debug_line    0x00000d15      0x225 Debug/SEGGER_RTT_printf.o
+ .debug_line    0x00000f3a      0x6c2 Debug/nrf_drv_uart.o
+ .debug_line    0x000015fc      0x2f8 Debug/nrf_log.o
+ .debug_line    0x000018f4      0x226 Debug/app_error.o
+ .debug_line    0x00001b1a      0x6a3 Debug/app_timer.o
+ .debug_line    0x000021bd      0x1b7 Debug/nrf_drv_common.o
+ .debug_line    0x00002374      0x81a Debug/nrf_drv_gpiote.o
+ .debug_line    0x00002b8e      0xadc Debug/pstorage.o
+ .debug_line    0x0000366a      0x31f Debug/app_button.o
+ .debug_line    0x00003989      0x42a Debug/bsp.o
+ .debug_line    0x00003db3      0x25d Debug/bsp_btn_ble.o
+ .debug_line    0x00004010      0x570 Debug/ble_db_discovery.o
+ .debug_line    0x00004580      0x364 Debug/ble_hrs_c.o
+ .debug_line    0x000048e4      0x37f Debug/ble_bas_c.o
+ .debug_line    0x00004c63      0xbe5 Debug/device_manager_central.o
+ .debug_line    0x00005848      0x179 Debug/system_nrf51.o
+ .debug_line    0x000059c1      0x54e Debug/softdevice_handler.o
+
+.debug_str      0x00000000     0x7f94
+ .debug_str     0x00000000     0x2cc9 Debug/main.o
+                               0x2f57 (size before relaxing)
+ .debug_str     0x00002cc9      0x348 Debug/SEGGER_RTT.o
+                                0x543 (size before relaxing)
+ .debug_str     0x00003011      0x13c Debug/SEGGER_RTT_printf.o
+                                0x357 (size before relaxing)
+ .debug_str     0x0000314d      0xfec Debug/nrf_drv_uart.o
+                               0x1287 (size before relaxing)
+ .debug_str     0x00004139      0x100 Debug/nrf_log.o
+                                0x3e2 (size before relaxing)
+ .debug_str     0x00004239      0x105 Debug/app_error.o
+                                0x3a6 (size before relaxing)
+ .debug_str     0x0000433e      0x84c Debug/app_timer.o
+                                0xddf (size before relaxing)
+ .debug_str     0x00004b8a       0x3b Debug/nrf_drv_common.o
+                                0x484 (size before relaxing)
+ .debug_str     0x00004bc5      0x922 Debug/nrf_drv_gpiote.o
+                               0x10cc (size before relaxing)
+ .debug_str     0x000054e7      0xad1 Debug/pstorage.o
+                               0x140d (size before relaxing)
+ .debug_str     0x00005fb8      0x1b3 Debug/app_button.o
+                                0x6a6 (size before relaxing)
+ .debug_str     0x0000616b      0x306 Debug/bsp.o
+                                0xb9c (size before relaxing)
+ .debug_str     0x00006471       0xf2 Debug/bsp_btn_ble.o
+                               0x1292 (size before relaxing)
+ .debug_str     0x00006563      0x748 Debug/ble_db_discovery.o
+                               0x17fe (size before relaxing)
+ .debug_str     0x00006cab      0x1ca Debug/ble_hrs_c.o
+                               0x1619 (size before relaxing)
+ .debug_str     0x00006e75       0xb7 Debug/ble_bas_c.o
+                               0x164b (size before relaxing)
+ .debug_str     0x00006f2c      0xb90 Debug/device_manager_central.o
+                               0x21f6 (size before relaxing)
+ .debug_str     0x00007abc       0xec Debug/system_nrf51.o
+                                0x2dd (size before relaxing)
+ .debug_str     0x00007ba8      0x3ec Debug/softdevice_handler.o
+                               0x1c20 (size before relaxing)

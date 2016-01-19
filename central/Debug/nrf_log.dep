@@ -1,0 +1,17 @@
+Debug/nrf_log.o: ../../SDK11/components/libraries/util/nrf_log.c \
+ ../../SDK11/components/device/nrf.h \
+ ../../SDK11/components/device/nrf51.h \
+ ../../SDK11/components/toolchain/gcc/core_cm0.h \
+ ../../SDK11/components/toolchain/gcc/core_cmInstr.h \
+ ../../SDK11/components/toolchain/gcc/core_cmFunc.h \
+ ../../SDK11/components/toolchain/system_nrf51.h \
+ ../../SDK11/components/device/nrf51_bitfields.h \
+ ../../SDK11/components/device/nrf51_deprecated.h \
+ ../../SDK11/components/device/compiler_abstraction.h \
+ ../../SDK11/components/libraries/util/nrf_log.h \
+ ../../SDK11/components/libraries/util/app_util.h \
+ ../../SDK11/components/device/compiler_abstraction.h \
+ ../../SDK11/components/softdevice/s130/headers/nrf_error.h \
+ ../../SDK11/components/drivers_ext/segger_rtt/SEGGER_RTT_Conf.h \
+ ../../SDK11/components/drivers_ext/segger_rtt/SEGGER_RTT.h \
+ ../../SDK11/components/drivers_ext/segger_rtt/SEGGER_RTT_Conf.h

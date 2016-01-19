@@ -1,0 +1,30 @@
+Debug/nrf_drv_uart.o: \
+ ../../SDK11/components/drivers_nrf/uart/nrf_drv_uart.c \
+ ../../SDK11/components/drivers_nrf/uart/nrf_drv_uart.h \
+ ../../SDK11/components/drivers_nrf/hal/nrf_uart.h \
+ ../../SDK11/components/device/nrf.h \
+ ../../SDK11/components/device/nrf51.h \
+ ../../SDK11/components/toolchain/gcc/core_cm0.h \
+ ../../SDK11/components/toolchain/gcc/core_cmInstr.h \
+ ../../SDK11/components/toolchain/gcc/core_cmFunc.h \
+ ../../SDK11/components/toolchain/system_nrf51.h \
+ ../../SDK11/components/device/nrf51_bitfields.h \
+ ../../SDK11/components/device/nrf51_deprecated.h \
+ ../../SDK11/components/device/compiler_abstraction.h \
+ ../../SDK11/components/libraries/util/sdk_errors.h \
+ ../../SDK11/components/softdevice/s130/headers/nrf_error.h \
+ ../../SDK11/examples/ble_peripheral/ble_app_hrs/config/ble_app_hrs_s130_pca10028/nrf_drv_config.h \
+ ../../SDK11/components/drivers_nrf/config/nrf_drv_config_validation.h \
+ ../../SDK11/components/libraries/util/nrf_assert.h \
+ ../../SDK11/components/libraries/util/app_error.h \
+ ../../SDK11/components/libraries/util/sdk_errors.h \
+ ../../SDK11/components/libraries/util/nordic_common.h \
+ ../../SDK11/components/libraries/util/nordic_common.h \
+ ../../SDK11/components/drivers_nrf/common/nrf_drv_common.h \
+ ../../SDK11/components/drivers_nrf/hal/nrf_gpio.h \
+ ../../SDK11/components/libraries/util/app_util_platform.h \
+ ../../SDK11/components/device/compiler_abstraction.h \
+ ../../SDK11/components/softdevice/s130/headers/nrf_soc.h \
+ ../../SDK11/components/softdevice/s130/headers/nrf_svc.h \
+ ../../SDK11/components/softdevice/s130/headers/nrf_error_soc.h \
+ ../../SDK11/components/softdevice/s130/headers/nrf_error.h
