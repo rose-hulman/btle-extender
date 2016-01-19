@@ -154,16 +154,16 @@ static void battery_level_update(void)
     uint32_t err_code;
     uint8_t  battery_level;
 
-    battery_level = (uint8_t)sensorsim_measure(&m_battery_sim_state, &m_battery_sim_cfg);
+    battery_level = (uint8_t)sensorsim_measure(&m_battery_sim_state, &m_battery_sim_cfg); // Calls an example measurement function which increments or decrements the value of the battery reading in a triangular wave pattern.
 
-    err_code = ble_bas_battery_level_update(&m_bas, battery_level);
-    if ((err_code != NRF_SUCCESS) &&
+    err_code = ble_bas_battery_level_update(&m_bas, battery_level); // Outputs the new battery level to the appropriate listeners for updating.
+    if ((err_code != NRF_SUCCESS) &&							// If the previous operation is not successful, and it does not result in one of the expected error types, throw it into the error handler.
         (err_code != NRF_ERROR_INVALID_STATE) &&
         (err_code != BLE_ERROR_NO_TX_BUFFERS) &&
         (err_code != BLE_ERROR_GATTS_SYS_ATTR_MISSING)
         )
     {
-        APP_ERROR_HANDLER(err_code);
+        APP_ERROR_HANDLER(err_code); //Error handler.
     }
 }
 
@@ -177,8 +177,8 @@ static void battery_level_update(void)
  */
 static void battery_level_meas_timeout_handler(void * p_context)
 {
-    UNUSED_PARAMETER(p_context);
-    battery_level_update();
+    UNUSED_PARAMETER(p_context);	// Deal with unused parameter instead of just throwing it away.
+    battery_level_update();				// Update battery level value.
 }
 
 
@@ -196,19 +196,19 @@ static void heart_rate_meas_timeout_handler(void * p_context)
     uint32_t        err_code;
     uint16_t        heart_rate;
 
-    UNUSED_PARAMETER(p_context);
+    UNUSED_PARAMETER(p_context);	// Deal with unused context parameter.
 
-    heart_rate = (uint16_t)sensorsim_measure(&m_heart_rate_sim_state, &m_heart_rate_sim_cfg);
+    heart_rate = (uint16_t)sensorsim_measure(&m_heart_rate_sim_state, &m_heart_rate_sim_cfg);	// Retrieve and update heart rate value
 
     cnt++;
-    err_code = ble_hrs_heart_rate_measurement_send(&m_hrs, heart_rate);
-    if ((err_code != NRF_SUCCESS) &&
+    err_code = ble_hrs_heart_rate_measurement_send(&m_hrs, heart_rate);	// Send value over bluetooth
+    if ((err_code != NRF_SUCCESS) &&							// If the previous operation is not successful, and it does not result in one of the expected error types, throw it into the error handler.
         (err_code != NRF_ERROR_INVALID_STATE) &&
         (err_code != BLE_ERROR_NO_TX_BUFFERS) &&
         (err_code != BLE_ERROR_GATTS_SYS_ATTR_MISSING)
         )
     {
-        APP_ERROR_HANDLER(err_code);
+        APP_ERROR_HANDLER(err_code);	//Error handler
     }
 
     // Disable RR Interval recording every third heart rate measurement.
@@ -227,15 +227,15 @@ static void heart_rate_meas_timeout_handler(void * p_context)
  */
 static void rr_interval_timeout_handler(void * p_context)
 {
-    UNUSED_PARAMETER(p_context);
+    UNUSED_PARAMETER(p_context);// Deal with unused context parameter.
 
     if (m_rr_interval_enabled)
     {
         uint16_t rr_interval;
 
-        rr_interval = (uint16_t)sensorsim_measure(&m_rr_interval_sim_state,
-                                                      &m_rr_interval_sim_cfg);
-        ble_hrs_rr_interval_add(&m_hrs, rr_interval);
+        rr_interval = (uint16_t)sensorsim_measure(&m_rr_interval_sim_state,			// If the RR interval timer is enabled, update the RR interval simulator state
+                                                      &m_rr_interval_sim_cfg);	// using the sim config and store the result in the rr_interval variable.
+        ble_hrs_rr_interval_add(&m_hrs, rr_interval); //Add the RR interval value to the list of values, deleting the oldest value if necessary.
     }
 }
 
@@ -251,10 +251,10 @@ static void sensor_contact_detected_timeout_handler(void * p_context)
 {
     static bool sensor_contact_detected = false;
 
-    UNUSED_PARAMETER(p_context);
+    UNUSED_PARAMETER(p_context);	// Deal with unused context parameter.
 
-    sensor_contact_detected = !sensor_contact_detected;
-    ble_hrs_sensor_contact_detected_update(&m_hrs, sensor_contact_detected);
+    sensor_contact_detected = !sensor_contact_detected;	//Toggle value of sensor_contact_detected
+    ble_hrs_sensor_contact_detected_update(&m_hrs, sensor_contact_detected);	// Update the value of the contact detected variable via BLE
 }
 
 
@@ -270,22 +270,22 @@ static void timers_init(void)
     APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
 
     // Create timers.
-    err_code = app_timer_create(&m_battery_timer_id,
+    err_code = app_timer_create(&m_battery_timer_id,								// Create battery timer
                                 APP_TIMER_MODE_REPEATED,
                                 battery_level_meas_timeout_handler);
     APP_ERROR_CHECK(err_code);
 
-    err_code = app_timer_create(&m_heart_rate_timer_id,
+    err_code = app_timer_create(&m_heart_rate_timer_id,							// Create HR measurement timer
                                 APP_TIMER_MODE_REPEATED,
                                 heart_rate_meas_timeout_handler);
     APP_ERROR_CHECK(err_code);
 
-    err_code = app_timer_create(&m_rr_interval_timer_id,
+    err_code = app_timer_create(&m_rr_interval_timer_id,						// Create RR interval timer
                                 APP_TIMER_MODE_REPEATED,
                                 rr_interval_timeout_handler);
     APP_ERROR_CHECK(err_code);
 
-    err_code = app_timer_create(&m_sensor_contact_timer_id,
+    err_code = app_timer_create(&m_sensor_contact_timer_id,					// Create contact detected timer
                                 APP_TIMER_MODE_REPEATED,
                                 sensor_contact_detected_timeout_handler);
     APP_ERROR_CHECK(err_code);
@@ -303,25 +303,25 @@ static void gap_params_init(void)
     ble_gap_conn_params_t   gap_conn_params;
     ble_gap_conn_sec_mode_t sec_mode;
 
-    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&sec_mode);
+    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&sec_mode);	// Sets GAP connection mode to open
 
-    err_code = sd_ble_gap_device_name_set(&sec_mode,
+    err_code = sd_ble_gap_device_name_set(&sec_mode,		// Sets name of GAP device
                                           (const uint8_t *)DEVICE_NAME,
                                           strlen(DEVICE_NAME));
     APP_ERROR_CHECK(err_code);
 
-    err_code = sd_ble_gap_appearance_set(BLE_APPEARANCE_HEART_RATE_SENSOR_HEART_RATE_BELT);
+    err_code = sd_ble_gap_appearance_set(BLE_APPEARANCE_HEART_RATE_SENSOR_HEART_RATE_BELT);	// Sets GAP device appearance to a HR sensor attached to a HR belt (value 833)
     APP_ERROR_CHECK(err_code);
 
     memset(&gap_conn_params, 0, sizeof(gap_conn_params));
 
-    gap_conn_params.min_conn_interval = MIN_CONN_INTERVAL;
+    gap_conn_params.min_conn_interval = MIN_CONN_INTERVAL;	// Set min and max connection intervals for GAP device
     gap_conn_params.max_conn_interval = MAX_CONN_INTERVAL;
-    gap_conn_params.slave_latency     = SLAVE_LATENCY;
-    gap_conn_params.conn_sup_timeout  = CONN_SUP_TIMEOUT;
+    gap_conn_params.slave_latency     = SLAVE_LATENCY;			// Set GAP device slave latency
+    gap_conn_params.conn_sup_timeout  = CONN_SUP_TIMEOUT;		// Set GAP device connection supervisory timeout 
 
-    err_code = sd_ble_gap_ppcp_set(&gap_conn_params);
-    APP_ERROR_CHECK(err_code);
+    err_code = sd_ble_gap_ppcp_set(&gap_conn_params);				// Check validity of GAP connection parameters and send via BLE
+    APP_ERROR_CHECK(err_code);															// Check for errors.
 }
 
 

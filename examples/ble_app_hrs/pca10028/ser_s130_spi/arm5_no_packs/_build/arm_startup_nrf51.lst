@@ -335,18 +335,18 @@ ARM Macro Assembler    Page 6
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=.\_build\arm_startup_nrf51.d -o.\_build\arm_startup_nrf51.o -I"C:\
-Users\leversad\Documents\Courses\2015-2016 Winter\ECE461\SDK10\examples\ble_per
-ipheral\ble_app_hrs\pca10028\ser_s130_spi\arm5_no_packs\RTE" -IC:\Keil_v5\ARM\P
-ACK\ARM\CMSIS\4.5.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF
-_DeviceFamilyPack\8.2.0\Device\Include -IC:\Keil_v5\ARM\PACK\NordicSemiconducto
-r\nRF_DeviceFamilyPack\8.3.2\Device\Include --predefine="__EVAL SETA 1" --prede
-fine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 517" --predefine="
-_RTE_ SETA 1" --predefine="NRF51 SETA 1" --predefine="SPI_MASTER_0_ENABLE SETA 
-1" --predefine="BLE_STACK_SUPPORT_REQD SETA 1" --predefine="SWI_DISABLE3 SETA 1
-" --predefine="S130 SETA 1" --predefine="SVCALL_AS_NORMAL_FUNCTION SETA 1" --pr
-edefine="BOARD_PCA10028 SETA 1" --predefine="SWI_DISABLE0 SETA 1" --predefine="
-NRF51 SETA 1" --list=.\_build\arm_startup_nrf51.lst RTE\Device\nRF51422_xxAC\ar
-m_startup_nrf51.s
+Users\leversad\Documents\Courses\2015-2016 Winter\ECE461\btle-extender\examples
+\ble_app_hrs\pca10028\ser_s130_spi\arm5_no_packs\RTE" -IC:\Keil_v5\ARM\PACK\ARM
+\CMSIS\4.5.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Device
+FamilyPack\8.2.0\Device\Include -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_D
+eviceFamilyPack\8.3.2\Device\Include --predefine="__EVAL SETA 1" --predefine="_
+_MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 517" --predefine="_RTE_ S
+ETA 1" --predefine="NRF51 SETA 1" --predefine="SPI_MASTER_0_ENABLE SETA 1" --pr
+edefine="BLE_STACK_SUPPORT_REQD SETA 1" --predefine="SWI_DISABLE3 SETA 1" --pre
+define="S130 SETA 1" --predefine="SVCALL_AS_NORMAL_FUNCTION SETA 1" --predefine
+="BOARD_PCA10028 SETA 1" --predefine="SWI_DISABLE0 SETA 1" --predefine="NRF51 S
+ETA 1" --list=.\_build\arm_startup_nrf51.lst RTE\Device\nRF51422_xxAC\arm_start
+up_nrf51.s
 
 
 
