@@ -511,25 +511,31 @@ static void services_init(void)
  */
 static void sensor_simulator_init(void)
 {
-    m_battery_sim_cfg.min          = MIN_BATTERY_LEVEL;
+		//parameters for simulated battery sensor
+    m_battery_sim_cfg.min          = MIN_BATTERY_LEVEL; 
     m_battery_sim_cfg.max          = MAX_BATTERY_LEVEL;
-    m_battery_sim_cfg.incr         = BATTERY_LEVEL_INCREMENT;
-    m_battery_sim_cfg.start_at_max = true;
+    m_battery_sim_cfg.incr         = BATTERY_LEVEL_INCREMENT; 
+    m_battery_sim_cfg.start_at_max = true; // true means start at max, false means start at min
 
+		//Function for initializing a triangular waveform sensor simulator.
     sensorsim_init(&m_battery_sim_state, &m_battery_sim_cfg);
-
+	
+		//parameters for simulated battery sensor
     m_heart_rate_sim_cfg.min          = MIN_HEART_RATE;
     m_heart_rate_sim_cfg.max          = MAX_HEART_RATE;
     m_heart_rate_sim_cfg.incr         = HEART_RATE_INCREMENT;
-    m_heart_rate_sim_cfg.start_at_max = false;
-
+    m_heart_rate_sim_cfg.start_at_max = false; // true means start at max, false means start at min
+	
+		//Function for initializing a triangular waveform sensor simulator.
     sensorsim_init(&m_heart_rate_sim_state, &m_heart_rate_sim_cfg);
-
+	
+		//parameters for simulated battery sensor
     m_rr_interval_sim_cfg.min          = MIN_RR_INTERVAL;
     m_rr_interval_sim_cfg.max          = MAX_RR_INTERVAL;
     m_rr_interval_sim_cfg.incr         = RR_INTERVAL_INCREMENT;
-    m_rr_interval_sim_cfg.start_at_max = false;
-
+    m_rr_interval_sim_cfg.start_at_max = false; // true means start at max, false means start at min
+		
+		//Function for initializing a triangular waveform sensor simulator.
     sensorsim_init(&m_rr_interval_sim_state, &m_rr_interval_sim_cfg);
 }
 
@@ -569,9 +575,9 @@ static void on_conn_params_evt(ble_conn_params_evt_t * p_evt)
 {
     uint32_t err_code;
 
-    if (p_evt->evt_type == BLE_CONN_PARAMS_EVT_FAILED)
+    if (p_evt->evt_type == BLE_CONN_PARAMS_EVT_FAILED) //if the event is a connection failure
     {
-        err_code = sd_ble_gap_disconnect(m_conn_handle, BLE_HCI_CONN_INTERVAL_UNACCEPTABLE);
+        err_code = sd_ble_gap_disconnect(m_conn_handle, BLE_HCI_CONN_INTERVAL_UNACCEPTABLE); // disconnect ble connection
         APP_ERROR_CHECK(err_code);
     }
 }
@@ -583,29 +589,29 @@ static void on_conn_params_evt(ble_conn_params_evt_t * p_evt)
  */
 static void conn_params_error_handler(uint32_t nrf_error)
 {
-    APP_ERROR_HANDLER(nrf_error);
+    APP_ERROR_HANDLER(nrf_error); // describes what error occured
 }
 
 
-/**@brief Function for initializing the Connection Parameters module.
+/**@brief Function for initializing the BLE Connection Parameters module.
  */
 static void conn_params_init(void)
 {
     uint32_t               err_code;
-    ble_conn_params_init_t cp_init;
+    ble_conn_params_init_t cp_init; //refers to the struct ble_conn_params_init_t
 
-    memset(&cp_init, 0, sizeof(cp_init));
+    memset(&cp_init, 0, sizeof(cp_init)); //clear the values in ble_conn_params_init_t
 
-    cp_init.p_conn_params                  = NULL;
-    cp_init.first_conn_params_update_delay = FIRST_CONN_PARAMS_UPDATE_DELAY;
-    cp_init.next_conn_params_update_delay  = NEXT_CONN_PARAMS_UPDATE_DELAY;
-    cp_init.max_conn_params_update_count   = MAX_CONN_PARAMS_UPDATE_COUNT;
-    cp_init.start_on_notify_cccd_handle    = m_hrs.hrm_handles.cccd_handle;
-    cp_init.disconnect_on_fail             = false;
-    cp_init.evt_handler                    = on_conn_params_evt;
-    cp_init.error_handler                  = conn_params_error_handler;
+    cp_init.p_conn_params                  = NULL; //the connection parameters will be fetched from host. 
+    cp_init.first_conn_params_update_delay = FIRST_CONN_PARAMS_UPDATE_DELAY; //Time from initiating event (connect or start of notification) 																									 
+    cp_init.next_conn_params_update_delay  = NEXT_CONN_PARAMS_UPDATE_DELAY;  // time between calls after the first
+    cp_init.max_conn_params_update_count   = MAX_CONN_PARAMS_UPDATE_COUNT;	 // number of attempts before giving up connection
+    cp_init.start_on_notify_cccd_handle    = m_hrs.hrm_handles.cccd_handle;  //defines when procedure is to be started
+    cp_init.disconnect_on_fail             = false; // false because they implemented on_conn_params_ev() to handle a failure
+    cp_init.evt_handler                    = on_conn_params_evt; // handles failed connection
+    cp_init.error_handler                  = conn_params_error_handler; //details event that occured
 
-    err_code = ble_conn_params_init(&cp_init);
+    err_code = ble_conn_params_init(&cp_init); //pointer to the struct for error handeling
     APP_ERROR_CHECK(err_code);
 }
 
@@ -638,15 +644,15 @@ static void sleep_mode_enter(void)
 static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 {
     uint32_t err_code;
-
-    switch (ble_adv_evt)
+		//
+    switch (ble_adv_evt) 
     {
-        case BLE_ADV_EVT_FAST:
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
+        case BLE_ADV_EVT_FAST: //fast advertise mode, need further research
+            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING); //check if it is correctly advertising
             APP_ERROR_CHECK(err_code);
             break;
-        case BLE_ADV_EVT_IDLE:
-            sleep_mode_enter();
+        case BLE_ADV_EVT_IDLE: //Idle; no connectable advertising is ongoing.
+            sleep_mode_enter(); //go to sleep and basically reset
             break;
         default:
             break;
@@ -662,16 +668,16 @@ static void on_ble_evt(ble_evt_t * p_ble_evt)
 {
     uint32_t err_code;
 
-    switch (p_ble_evt->header.evt_id)
+    switch (p_ble_evt->header.evt_id) //p_ble_evt is a struct for Common BLE Event types, wrapping the module specific event reports
             {
-        case BLE_GAP_EVT_CONNECTED:
-            err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
+        case BLE_GAP_EVT_CONNECTED: //if gap event is CONNECTED
+            err_code = bsp_indication_set(BSP_INDICATE_CONNECTED); //check if actually connected
             APP_ERROR_CHECK(err_code);
-            m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
+            m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle; //GAP originated event, evt_id in BLE_GAP_EVT_* series. m_con_handle will be set to the event type which occurred 
             break;
 
-        case BLE_GAP_EVT_DISCONNECTED:
-            m_conn_handle = BLE_CONN_HANDLE_INVALID;
+        case BLE_GAP_EVT_DISCONNECTED: 
+            m_conn_handle = BLE_CONN_HANDLE_INVALID; // BLE_CONN_HANDLE_INVALID = 0xFFFF which indicates an invalid connection handle
             break;
 
         default:
@@ -690,18 +696,20 @@ static void on_ble_evt(ble_evt_t * p_ble_evt)
  */
 static void ble_evt_dispatch(ble_evt_t * p_ble_evt)
 {
-    dm_ble_evt_handler(p_ble_evt);
-    ble_hrs_on_ble_evt(&m_hrs, p_ble_evt);
-    ble_bas_on_ble_evt(&m_bas, p_ble_evt);
-    ble_conn_params_on_ble_evt(p_ble_evt);
-    bsp_btn_ble_on_ble_evt(p_ble_evt);
+    dm_ble_evt_handler(p_ble_evt); //device manager aka BLE event handler. Handles which STACK event is occurring
+    ble_hrs_on_ble_evt(&m_hrs, p_ble_evt); //heart rate service event handler
+    ble_bas_on_ble_evt(&m_bas, p_ble_evt); //battery service event handler
+    ble_conn_params_on_ble_evt(p_ble_evt); //GAP event handler
+    bsp_btn_ble_on_ble_evt(p_ble_evt); //determines CONNECTED or DISCONNECTED GAP events
+	
+		//following has to do with Firmware updates. 
 #ifdef BLE_DFU_APP_SUPPORT
     /** @snippet [Propagating BLE Stack events to DFU Service] */
-    ble_dfu_on_ble_evt(&m_dfus, p_ble_evt);
+    ble_dfu_on_ble_evt(&m_dfus, p_ble_evt); 
     /** @snippet [Propagating BLE Stack events to DFU Service] */
 #endif // BLE_DFU_APP_SUPPORT
     on_ble_evt(p_ble_evt);
-    ble_advertising_on_ble_evt(p_ble_evt);
+    ble_advertising_on_ble_evt(p_ble_evt); 
 }
 
 
@@ -714,8 +722,8 @@ static void ble_evt_dispatch(ble_evt_t * p_ble_evt)
  */
 static void sys_evt_dispatch(uint32_t sys_evt)
 {
-    pstorage_sys_event_handler(sys_evt);
-    ble_advertising_on_sys_evt(sys_evt);
+    pstorage_sys_event_handler(sys_evt); // Handles Flash Access Result Events
+    ble_advertising_on_sys_evt(sys_evt); // handles BLE events that are relevant or the Advertising Module
 }
 
 
@@ -800,7 +808,7 @@ static uint32_t device_manager_evt_handler(dm_handle_t const * p_handle,
 #ifdef BLE_DFU_APP_SUPPORT
     if (p_event->event_id == DM_EVT_LINK_SECURED)
     {
-        app_context_load(p_handle);
+        app_context_load(p_handle); //loads ID of peer device
     }
 #endif // BLE_DFU_APP_SUPPORT
 
@@ -817,7 +825,7 @@ static void device_manager_init(bool erase_bonds)
 {
     uint32_t               err_code;
     dm_init_param_t        init_param = {.clear_persistent_data = erase_bonds};
-    dm_application_param_t register_param;
+    dm_application_param_t register_param; //Parameters needed by the module when registering with it.
 
     // Initialize persistent storage module.
     err_code = pstorage_init();
@@ -827,14 +835,16 @@ static void device_manager_init(bool erase_bonds)
     APP_ERROR_CHECK(err_code);
 
     memset(&register_param.sec_param, 0, sizeof(ble_gap_sec_params_t));
-
+		//Security parameters to be used for the application.
     register_param.sec_param.bond         = SEC_PARAM_BOND;
     register_param.sec_param.mitm         = SEC_PARAM_MITM;
     register_param.sec_param.io_caps      = SEC_PARAM_IO_CAPABILITIES;
     register_param.sec_param.oob          = SEC_PARAM_OOB;
     register_param.sec_param.min_key_size = SEC_PARAM_MIN_KEY_SIZE;
     register_param.sec_param.max_key_size = SEC_PARAM_MAX_KEY_SIZE;
+		// Event Handler to be registered. It will receive asynchronous notification from the module
     register_param.evt_handler            = device_manager_evt_handler;
+		//Bit mask identifying services that the application intends to support for all peers.
     register_param.service_type           = DM_PROTOCOL_CNTXT_GATT_SRVR_ID;
 
     err_code = dm_register(&m_app_handle, &register_param);
@@ -892,7 +902,7 @@ static void buttons_leds_init(bool * p_erase_bonds)
  */
 static void power_manage(void)
 {
-    uint32_t err_code = sd_app_evt_wait();
+    uint32_t err_code = sd_app_evt_wait(); // wait for events
     APP_ERROR_CHECK(err_code);
 }
 
@@ -905,7 +915,7 @@ int main(void)
     bool erase_bonds;
 
     // Initialize.
-    app_trace_init();
+    app_trace_init(); //Initializes the module to use UART as trace output.
     timers_init();
     buttons_leds_init(&erase_bonds);
     ble_stack_init();
@@ -917,13 +927,13 @@ int main(void)
     conn_params_init();
 
     // Start execution.
-    application_timers_start();
-    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
+    application_timers_start(); // starts timers
+    err_code = ble_advertising_start(BLE_ADV_MODE_FAST); //start adver
     APP_ERROR_CHECK(err_code);
 
     // Enter main loop.
     for (;;)
     {
-        power_manage();
+        power_manage(); // basically waits for events to occur
     }
 }
