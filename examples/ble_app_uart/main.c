@@ -466,22 +466,12 @@ static void advertising_init(void)
     uint32_t      err_code;
     ble_advdata_t advdata;
     ble_advdata_t scanrsp;
-	
-	  // Putting data inside the advertising packet
-    ble_advdata_manuf_data_t        manuf_data;
-    uint8_t advData[]  = "This device forwards text"; //not sure how long this string can be
-    manuf_data.company_identifier           = 0x8050; // Our company ID
-    manuf_data.data.p_data                  = advData;
-    manuf_data.data.size                    = sizeof(advData);
-	
 
     // Build advertising data struct to pass into @ref ble_advertising_init.
     memset(&advdata, 0, sizeof(advdata));
-    advdata.name_type          = BLE_ADVDATA_NO_NAME;
-		//advdata.short_name_len		 = 6; Assuming no_name has a length of 0
-    advdata.include_appearance = true;
+    advdata.name_type          = BLE_ADVDATA_FULL_NAME;
+    advdata.include_appearance = false;
     advdata.flags              = BLE_GAP_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE;
-	  advdata.p_manuf_specific_data   = &manuf_data;       
 
     memset(&scanrsp, 0, sizeof(scanrsp));
     scanrsp.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
@@ -549,13 +539,13 @@ int main(void)
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);//Starts BLE advertising mode.
     APP_ERROR_CHECK(err_code);				//Handles any errors that result from starting advertising mode.
     // Enter main loop.
-		SEGGER_RTT_WriteString(0, "Hello World!\n");
-		char c = 0;
+//		SEGGER_RTT_WriteString(0, "Hello World!\n");
+//		char c = 0;
     for (;;)
     {
-			unsigned char str[16];
+			unsigned char str[16] = "";// = "This is a test\n";
 			SEGGER_RTT_Read(0,(char *)str,16);
-			SEGGER_RTT_WriteString(0,(char *)str);
+//			SEGGER_RTT_WriteString(0,(char *)str);
 			err_code = ble_nus_string_send(&m_nus, str, 16);//Send the string to the BLE module
 			if (err_code != NRF_ERROR_INVALID_STATE)
 			{
