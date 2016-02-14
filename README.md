@@ -73,3 +73,7 @@ Nordic SDK
 + [Documentation](http://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk51.v9.0.0%2Fnrf51_getting_started.html)
 
 
+
+Working Code
+-------------
+Project in its current working state is in /workingProject/ble_app_uart
