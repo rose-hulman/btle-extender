@@ -9,6 +9,21 @@
  * the file.
  *
  */
+ 
+ /*
+ SPI0 Pins:
+ 
+                Master ----- Slave
+ 
+ MOSI = 25 -------- 25
+ MISO = 28 -------- 28
+ SCK =     29 -------- 29
+ SS =     24 -------- 24
+ 
+ 
+ 
+ */
+ 
 
 /** @file
  *
@@ -20,6 +35,7 @@
  * This file contains the source code for a sample application that uses the Nordic UART service.
  * This application uses the @ref srvlib_conn_params module.
  */
+
 #include <stdint.h>
 #include <string.h>
 #include "nordic_common.h"
@@ -36,11 +52,20 @@
 #include "app_util_platform.h"
 #include "bsp.h"
 #include "bsp_btn_ble.h"
+#include "nrf_gpio.h"
+#include "nrf_gpiote.h"
+#include "nrf_drv_gpiote.h"
+
+#include <stdio.h>
+#include <stdbool.h>
+#include "app_error.h"
+#include "nrf_delay.h"
+#include "nrf_drv_spi.h"
 #include "SEGGER_RTT.h"
 
 #define IS_SRVC_CHANGED_CHARACT_PRESENT 0                                           /**< Include the service_changed characteristic. If not enabled, the server's database cannot be changed for the lifetime of the device. */
 
-#define DEVICE_NAME                     "Nordic_UART"                               /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "Adamo's"                               /**< Name of device. Will be included in the advertising data. */
 #define NUS_SERVICE_UUID_TYPE           BLE_UUID_TYPE_VENDOR_BEGIN                  /**< UUID type for the Nordic UART Service (vendor specific). */
 
 #define APP_ADV_INTERVAL                64                                          /**< The advertising interval (in units of 0.625 ms. This value corresponds to 40 ms). */
@@ -64,10 +89,58 @@
 #define UART_TX_BUF_SIZE                256                                         /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
 
+
+#define DELAY_MS                 1000                /**< Timer Delay in milli-seconds. */
+#define TX_RX_BUF_LENGTH         16u                 /**< SPI transaction buffer length. */
+
+
+
+#if (SPI0_ENABLED == 1)
+    static const nrf_drv_spi_t m_spi_master = NRF_DRV_SPI_INSTANCE(0);
+#elif (SPI1_ENABLED == 1)
+    static const nrf_drv_spi_t m_spi_master = NRF_DRV_SPI_INSTANCE(1);
+#elif (SPI2_ENABLED == 1)
+    static const nrf_drv_spi_t m_spi_master = NRF_DRV_SPI_INSTANCE(2);
+#else
+    #error "No SPI enabled."
+#endif
+
+
+
+
 static ble_nus_t                        m_nus;                                      /**< Structure to identify the Nordic UART Service. */
 static uint16_t                         m_conn_handle = BLE_CONN_HANDLE_INVALID;    /**< Handle of the current connection. */
 
 static ble_uuid_t                       m_adv_uuids[] = {{BLE_UUID_NUS_SERVICE, NUS_SERVICE_UUID_TYPE}};  /**< Universally unique service identifier. */
+
+
+// Data buffers.
+static uint8_t m_tx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer with data to transfer. */
+static uint8_t txt_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer with data to transfer. */
+//static uint8_t spi_tx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer with data to transfer. */
+//static uint8_t spi_rx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer for incoming data. */
+static uint8_t m_rx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer for incoming data. */
+static bool newData = false;
+static volatile bool sendPacket = false;
+static volatile bool receivePacket = false;
+static volatile bool pinToggle = false;
+static volatile bool m_transfer_completed = true; /**< A flag to inform about completed transfer. */
+
+/*
+#    Functions Added after main()
+#
+#
+#
+#
+#
+#
+#
+*/
+void CC1101_Init(void);
+void CC1101_Calibrate(void);
+
+
+
 
 
 /**@brief Function for assert macro callback.
@@ -85,6 +158,157 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
 {
     app_error_handler(DEAD_BEEF, line_num, p_file_name);
 }
+
+//SPI functions follow --------------------------------------------------------------------------------------------------
+//
+//
+/**@brief Function for error handling, which is called when an error has occurred.
+ *
+ * @param[in] error_code  Error code supplied to the handler.
+ * @param[in] line_num    Line number where the handler is called.
+ * @param[in] p_file_name Pointer to the file name.
+ */
+void app_error_handler(uint32_t error_code, uint32_t line_num, const uint8_t * p_file_name)
+{
+    UNUSED_VARIABLE(bsp_indication_set(BSP_INDICATE_FATAL_ERROR));
+
+    for (;;)
+    {
+        // No implementation needed.
+    }
+}
+/**@brief Function for checking if data coming from a SPI slave are valid.
+ *
+ * @param[in] p_buf     A pointer to a data buffer.
+ * @param[in] len       A length of the data buffer.
+ * 
+ * @note Expected ASCII characters from: 'a' to: ('a' + len - 1).
+ *
+ * @retval true     Data are valid.
+ * @retval false    Data are invalid.
+ */
+static __INLINE bool buf_check(uint8_t * p_buf, uint16_t len)
+{
+//    uint16_t i;
+/*
+    for (i = 0; i < len; i++)
+    {
+        if (p_buf[i] != (uint8_t)('a' + i))
+        {
+            return false;
+        }
+    }
+*/
+    return true;
+}
+
+
+/**@brief Function for SPI master event callback.
+ *
+ * Upon receiving an SPI transaction complete event, checks if received data are valid.
+ *
+ * @param[in] spi_master_evt    SPI master driver event.
+ */
+static void spi_master_event_handler(nrf_drv_spi_event_t event)
+{
+    uint32_t err_code = NRF_SUCCESS;
+    bool result = false;
+
+    switch (event)
+    {
+        case NRF_DRV_SPI_EVENT_DONE:
+            // Check if data are valid.
+            result = buf_check(m_rx_data, TX_RX_BUF_LENGTH);
+            APP_ERROR_CHECK_BOOL(result);
+
+            err_code = bsp_indication_set(BSP_INDICATE_RCV_OK);
+            APP_ERROR_CHECK(err_code);
+
+            // Inform application that transfer is completed.
+            m_transfer_completed = true;
+            break;
+
+        default:
+            // No implementation needed.
+            break;
+    }
+}
+
+
+/**@brief The function initializes TX buffer to values to be sent and clears RX buffer.
+ *
+ * @note Function initializes TX buffer to values from 'A' to ('A' + len - 1)
+ *       and clears RX buffer (fill by 0).
+ *
+ * @param[in] p_tx_data     A pointer to a buffer TX.
+ * @param[in] p_rx_data     A pointer to a buffer RX.
+ * @param[in] len           A length of the data buffers.
+ */
+static void init_buffers(uint8_t * const p_tx_data, uint8_t * const p_rx_data, const uint16_t  len)
+{
+    uint16_t i;
+    
+    for (i = 0; i < len; i++)
+    {
+        p_tx_data[i] = m_tx_data[i];
+        p_rx_data[i] = 0;
+    }
+        
+        
+}
+
+
+/**@brief Functions prepares buffers and starts data transfer.
+ *
+ * @param[in] p_tx_data     A pointer to a buffer TX.
+ * @param[in] p_rx_data     A pointer to a buffer RX.
+ * @param[in] len           A length of the data buffers.
+ */
+static void spi_send_recv(uint8_t * const p_tx_data,
+                          uint8_t * const p_rx_data,
+                          const uint16_t  len)
+{
+    // Initalize buffers.
+    init_buffers(p_tx_data, p_rx_data, len);
+        
+    
+    // Start transfer.
+    
+    uint32_t err_code = nrf_drv_spi_transfer(&m_spi_master,
+        p_tx_data, len, p_rx_data, len);
+    //m_tx_data
+    //SEGGER_RTT_printf(0, "\nSent: %s\n", p_tx_data);
+    //SEGGER_RTT_printf(0, "\nRecieved: %s\n", p_rx_data);
+    
+    APP_ERROR_CHECK(err_code);
+    nrf_delay_us(10);
+}
+
+
+/**@brief Function for initializing bsp module.
+ *
+void bsp_configuration()
+{
+    uint32_t err_code = NRF_SUCCESS;
+
+    NRF_CLOCK->LFCLKSRC            = (CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos);
+    NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
+    NRF_CLOCK->TASKS_LFCLKSTART    = 1;
+
+    while (NRF_CLOCK->EVENTS_LFCLKSTARTED == 0)
+    {
+        // Do nothing.
+    }
+
+    APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, NULL);
+        
+    err_code = bsp_init(BSP_INIT_LED, APP_TIMER_TICKS(100, APP_TIMER_PRESCALER), NULL);
+    APP_ERROR_CHECK(err_code);
+}
+//
+*/
+//SPI functions end ------------------------------------------------------------------------------------------------------------
+
 
 
 /**@brief Function for the GAP initialization.
@@ -127,18 +351,26 @@ static void gap_params_init(void)
  * @param[in] length   Length of the data.
  */
 /**@snippet [Handling the data received over BLE] */
+
+
 static void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
-{
-	SEGGER_RTT_WriteString(0, "received data \n");
+{        SEGGER_RTT_WriteString(0, "received data \n");
+        newData = true;
+        memset(txt_data,0,sizeof(txt_data));
     for (uint32_t i = 0; i < length; i++)
     {
-		SEGGER_RTT_printf(0,"%c", p_data[i]);
+                //m_tx_data[i] = p_data[i];
+                txt_data[i] = p_data[i];
+                SEGGER_RTT_printf(0,"%c", p_data[i]);
         while(app_uart_put(p_data[i]) != NRF_SUCCESS);
     }
-	SEGGER_RTT_WriteString(0, "\n");
+      SEGGER_RTT_printf(0, "to send: %s\n", txt_data);
+        SEGGER_RTT_WriteString(0, "\n");
     while(app_uart_put('\n') != NRF_SUCCESS);
+        
 }
 /**@snippet [Handling the data received over BLE] */
+
 
 
 /**@brief Function for initializing services that will be used by the application.
@@ -268,14 +500,14 @@ static void on_ble_evt(ble_evt_t * p_ble_evt)
     switch (p_ble_evt->header.evt_id)
     {
         case BLE_GAP_EVT_CONNECTED:
-			SEGGER_RTT_WriteString(0, "CONNECTED\n");
+                    SEGGER_RTT_WriteString(0, "CONNECTED\n");
             err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
             APP_ERROR_CHECK(err_code);
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             break;
             
         case BLE_GAP_EVT_DISCONNECTED:
-			SEGGER_RTT_WriteString(0, "DISCONNECTED\n");
+                    SEGGER_RTT_WriteString(0, "DISCONNECTED\n");
             err_code = bsp_indication_set(BSP_INDICATE_IDLE);
             APP_ERROR_CHECK(err_code);
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
@@ -294,7 +526,7 @@ static void on_ble_evt(ble_evt_t * p_ble_evt)
             break;
 
         default:
-			SEGGER_RTT_WriteString(0, "BLE IDLE...\n");
+                    SEGGER_RTT_WriteString(0, "BLE IDLE...\n");
             // No implementation needed.
             break;
     }
@@ -347,7 +579,7 @@ static void ble_stack_init(void)
 }
 
 
-/**@brief Function for handling events from the Board Support Package module. This module allows for easy interaction with peripherals on the board such as buttons and LEDs.
+/**@brief Function for handling events from the BSP module.
  *
  * @param[in]   event   Event generated by button press.
  */
@@ -392,40 +624,39 @@ void bsp_event_handler(bsp_event_t event)
 /**@snippet [Handling the data received over UART] */
 void uart_event_handle(app_uart_evt_t * p_event)
 {
-			UNUSED_VARIABLE(p_event); //Do nothing on UART events
-//    static uint8_t data_array[BLE_NUS_MAX_DATA_LEN];
-//    static uint8_t index = 0;
-//    uint32_t       err_code;
+    static uint8_t data_array[BLE_NUS_MAX_DATA_LEN];
+    static uint8_t index = 0;
+    uint32_t       err_code;
 
-//    switch (p_event->evt_type)
-//    {
-//        case APP_UART_DATA_READY:
-//            UNUSED_VARIABLE(app_uart_get(&data_array[index]));
-//            index++;
+    switch (p_event->evt_type)
+    {
+        case APP_UART_DATA_READY:
+            UNUSED_VARIABLE(app_uart_get(&data_array[index]));
+            index++;
 
-//            if ((data_array[index - 1] == '\n') || (index >= (BLE_NUS_MAX_DATA_LEN)))//If we're at the end of a line or we've run out of characters
-//            {
-//                err_code = ble_nus_string_send(&m_nus, data_array, index);//Send the string to the BLE module
-//                if (err_code != NRF_ERROR_INVALID_STATE)
-//                {
-//                    APP_ERROR_CHECK(err_code);
-//                }
-//                
-//                index = 0;
-//            }
-//            break;
+            if ((data_array[index - 1] == '\n') || (index >= (BLE_NUS_MAX_DATA_LEN)))
+            {
+                err_code = ble_nus_string_send(&m_nus, data_array, index);
+                if (err_code != NRF_ERROR_INVALID_STATE)
+                {
+                    APP_ERROR_CHECK(err_code);
+                }
+                
+                index = 0;
+            }
+            break;
 
-//        case APP_UART_COMMUNICATION_ERROR:
-//            APP_ERROR_HANDLER(p_event->data.error_communication);
-//            break;
+        case APP_UART_COMMUNICATION_ERROR:
+            APP_ERROR_HANDLER(p_event->data.error_communication);
+            break;
 
-//        case APP_UART_FIFO_ERROR:
-//            APP_ERROR_HANDLER(p_event->data.error_code);
-//            break;
+        case APP_UART_FIFO_ERROR:
+            APP_ERROR_HANDLER(p_event->data.error_code);
+            break;
 
-//        default:
-//            break;
-//    }
+        default:
+            break;
+    }
 }
 /**@snippet [Handling the data received over UART] */
 
@@ -435,26 +666,25 @@ void uart_event_handle(app_uart_evt_t * p_event)
 /**@snippet [UART Initialization] */
 static void uart_init(void)
 {
-	// Not using UART, so do nothing on init
-//    uint32_t                     err_code;
-//    const app_uart_comm_params_t comm_params =
-//    {
-//        RX_PIN_NUMBER,
-//        TX_PIN_NUMBER,
-//        RTS_PIN_NUMBER,
-//        CTS_PIN_NUMBER,
-//        APP_UART_FLOW_CONTROL_ENABLED,
-//        false,
-//        UART_BAUDRATE_BAUDRATE_Baud38400
-//    };
+    uint32_t                     err_code;
+    const app_uart_comm_params_t comm_params =
+    {
+        RX_PIN_NUMBER,
+        TX_PIN_NUMBER,
+        RTS_PIN_NUMBER,
+        CTS_PIN_NUMBER,
+        APP_UART_FLOW_CONTROL_ENABLED,
+        false,
+        UART_BAUDRATE_BAUDRATE_Baud38400
+    };
 
-//    APP_UART_FIFO_INIT( &comm_params,
-//                       UART_RX_BUF_SIZE,
-//                       UART_TX_BUF_SIZE,
-//                       uart_event_handle,
-//                       APP_IRQ_PRIORITY_LOW,
-//                       err_code);//Initialize the FIFO module, passing in the uart_event_handle function along with other parameters. uart_event_handle runs every time a UART event is triggered.
-//    APP_ERROR_CHECK(err_code);
+    APP_UART_FIFO_INIT( &comm_params,
+                       UART_RX_BUF_SIZE,
+                       UART_TX_BUF_SIZE,
+                       uart_event_handle,
+                       APP_IRQ_PRIORITY_LOW,
+                       err_code);
+    APP_ERROR_CHECK(err_code);
 }
 /**@snippet [UART Initialization] */
 
@@ -487,24 +717,6 @@ static void advertising_init(void)
 }
 
 
-/**@brief Function for initializing buttons and leds.
- *
- * @param[out] p_erase_bonds  Will be true if the clear bonding button was pressed to wake the application up.
- */
-static void buttons_leds_init(bool * p_erase_bonds)
-{
-    bsp_event_t startup_event;
-
-    uint32_t err_code = bsp_init(BSP_INIT_LED | BSP_INIT_BUTTONS,
-                                 APP_TIMER_TICKS(100, APP_TIMER_PRESCALER), 
-                                 bsp_event_handler);
-    APP_ERROR_CHECK(err_code);
-
-    err_code = bsp_btn_ble_init(NULL, &startup_event);
-    APP_ERROR_CHECK(err_code);
-
-    *p_erase_bonds = (startup_event == BSP_EVENT_CLEAR_BONDING_DATA);
-}
 
 
 /**@brief Function for placing the application in low power state while waiting for events.
@@ -515,6 +727,178 @@ static void power_manage(void)
     APP_ERROR_CHECK(err_code);
 }
 
+//void SpiWriteReg(int addr, int value)
+//{
+//    digitalWrite(SS_PIN, LOW);        // tell CC1101 you are about to WRITE
+//    while(digitalRead(MISO_PIN));    // wait for it to accept data
+//    SpiTransfer(addr);                // write the address of register
+//    SpiTransfer(value);                // write the byte you want to store
+//    digitalWrite(SS_PIN, HIGH);        // inform that the WRITE process is over
+//}
+void CC1101_WriteBurst(uint8_t address, uint8_t * data, uint16_t len)
+{
+  uint8_t burstAddress;
+  int i;
+
+  burstAddress = (address | 0x40);//set R/W=0 and B=1
+  m_tx_data[0] = burstAddress; //set address
+   for(i=1;i<=len+1;i++){
+   m_tx_data[i] = data[i-1];
+    }                                                                          
+   nrf_gpio_pin_clear(SPIM0_SS_PIN);  //set SS low
+   while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait until SO goes low(0)
+   spi_send_recv(m_tx_data, m_rx_data, len);
+   while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait for SS to low
+		if(nrf_gpio_pin_read(14)){
+					SEGGER_RTT_WriteString(0, "Pin 15 read\n");
+				}
+   nrf_gpio_pin_set(SPIM0_SS_PIN);          //set SS high      
+}
+
+void CC1101_ReadSingle(uint8_t address)
+{              
+     uint8_t value[2];
+     uint8_t readAddress;
+    readAddress = (address | 0x80);                 //set R/w=1 and B=0
+    m_tx_data[0] = readAddress; //set address
+    m_tx_data[1] = 0x00;
+    nrf_gpio_pin_clear(SPIM0_SS_PIN);    //set SS low
+    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait until SO goes low(0)
+    spi_send_recv(m_tx_data, value, 2u);
+    nrf_gpio_pin_set(SPIM0_SS_PIN);     //set SS high
+
+}
+
+
+void CC1101_WriteSingle(uint8_t address, uint8_t data)
+{
+			m_tx_data[0] = address; //set address
+      m_tx_data[1] = data;
+      nrf_gpio_pin_clear(SPIM0_SS_PIN);  //set SS low
+      while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait until SO goes low(0)
+      spi_send_recv(m_tx_data, m_rx_data, 2u);
+      while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait for SS to low
+      nrf_gpio_pin_set(SPIM0_SS_PIN);          //set SS high
+                
+}
+
+//void SendDataPacket(int *txBuffer,int size)
+//{
+//    SpiWriteReg(_TXFIFO,size);
+//    SpiWriteBurstReg(_TXFIFO,txBuffer,size);            // Write data to send
+//    SpiStrobe(_STX);                                    // Start send
+//    while (!digitalRead(GDO0));                            // Wait for GDO0 to be set -> sync transmitted
+//    while (digitalRead(GDO0));                            // Wait for GDO0 to be cleared -> end of packet
+//    SpiStrobe(_SFTX);                                    // Flush TXfifo
+//}
+void SpiStrobe(uint8_t Strobe)
+{
+										nrf_gpio_pin_clear(SPIM0_SS_PIN);                    //set SS low
+                    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));    //wait until SO goes low(0)
+                    m_tx_data[0] = Strobe;    //send SRES command strobe
+                    m_tx_data[1] = 0x00;    //
+                    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));    //wait until SO goes low(0)
+                    spi_send_recv(m_tx_data, m_rx_data, 2u);
+										nrf_gpio_pin_set(SPIM0_SS_PIN);
+}
+void SendDataPacket(uint8_t * TX_data,uint16_t TXFIFO_Address_Size)
+{   
+		int _STX=0x35;//Command strobe for transmit mode
+    int _SFTX=0x3B;//Command strobe for flush TXFIFO
+    int TXFIFO_Address=0x3F;//Address of TX FIFO buffer
+		//sendPacket = true;
+    SpiStrobe(_SFTX);    // Flush TXfifo
+  
+    nrf_gpio_pin_set(SPIM0_SS_PIN);
+		
+		nrf_delay_us(1000);
+    CC1101_WriteBurst(TXFIFO_Address, TX_data, TXFIFO_Address_Size);//Sends a burst command indicating data and address to send to
+		//sendPacket = true;
+    SpiStrobe(_STX);//Send transmit mode command strobe
+		//SEGGER_RTT_printf(0, "read 14 %x\n",nrf_gpio_pin_read(14));
+//		nrf_delay_us(10000);
+//				if(nrf_gpio_pin_read(14)){
+//					SEGGER_RTT_WriteString(0, "Pin 15 read\n");
+//				}
+//    nrf_delay_us(2000);
+//  nrf_gpio_pin_set(SPIM0_SS_PIN);
+//    CC1101_ReadSingle(0x18);
+    //nrf_delay_us(10000);
+    //SpiStrobe(0x36);
+    //nrf_delay_us(1000);
+    //SpiStrobe(_SFTX);    // Flush TXfifo
+	
+    //nrf_delay_ms(100);
+//    while(m_rx_data[0]==0x25);
+//				nrf_gpio_cfg_watcher(14);
+//		nrf_gpio_cfg_input(14,NRF_GPIO_PIN_NOPULL);
+
+
+		SEGGER_RTT_WriteString(0,"Entering while\n");
+		//while(pinToggle == true);
+		//SEGGER_RTT_WriteString(0,"Exiting first while\n");
+		while(pinToggle == false);
+		SEGGER_RTT_WriteString(0,"Exiting second while\n");
+		//sendPacket = false;
+		pinToggle = false;	
+    nrf_gpio_pin_set(SPIM0_SS_PIN);
+		nrf_delay_us(100);
+		SpiStrobe(0x36);
+		nrf_delay_us(100);
+}
+
+
+void SpiReadBurstReg(uint8_t address)
+{
+               uint8_t burstAddress;
+               int i;
+               burstAddress = (address | 0xC0);//set R/W=1 and B=1
+               m_tx_data[0] = burstAddress;
+               m_tx_data[1] = 0x00;
+              
+               nrf_gpio_pin_clear(SPIM0_SS_PIN);
+               nrf_drv_spi_transfer(&m_spi_master, m_tx_data, 2u, m_rx_data, 8u);
+              
+               nrf_gpio_pin_set(SPIM0_SS_PIN);
+}
+void RecvDataPacket(void)
+{
+	
+              uint8_t SRX = 0x34;
+              uint8_t SFRX = 0x3A;
+              SpiStrobe(SRX);							
+							nrf_delay_us(1000);
+              SpiReadBurstReg(0x3B);		//status register of RXFIFO & with 0x7F because idk why
+							nrf_delay_us(1000);
+							SpiReadBurstReg(0x3B);		//status register of RXFIFO & with 0x7F because idk why
+							nrf_delay_us(1000);
+
+}
+void pin_event_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action){
+	if(pin==14){
+		if(action == NRF_GPIOTE_POLARITY_LOTOHI){
+			//TODO: Low to high action
+			SEGGER_RTT_WriteString(0,"Low to high\n");
+		}
+		else if(action == NRF_GPIOTE_POLARITY_HITOLO){
+			//TODO: High to low action
+			SEGGER_RTT_WriteString(0,"High to low\n");
+			if(pinToggle == false)
+				pinToggle = true;
+		}
+		else if(action== NRF_GPIOTE_POLARITY_TOGGLE){
+			//TODO: Toggle action?
+			SEGGER_RTT_printf(0,"Pin %d toggled\n",(uint32_t)pin);
+			if(pinToggle == false)
+				pinToggle = true;
+
+		}
+		SEGGER_RTT_printf(0,"pinToggle = %d, action = %x, sendpacket - %d\n",pinToggle,action, sendPacket);
+	}
+	//SEGGER_RTT_printf(0,"Pin %d toggled\n",(uint32_t)pin);
+	
+}
+
 
 /**@brief Application main function.
  */
@@ -523,50 +907,150 @@ int main(void)
     uint32_t err_code;
     bool erase_bonds;
     uint8_t  start_string[] = START_STRING;
-    
+    printf("%s",start_string);
     // Initialize.
     APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
-    // uart_init();											//Initialize the UART module by setting parameters and passing in an event handler function.
-    buttons_leds_init(&erase_bonds);	//Initialize Buttons and LEDs, passing in a button event handler function.
-    ble_stack_init();									//Etc... Basically we're passing in event handler functions to other methods,
-    gap_params_init();								//which allows for the main loop to simply wait until an event is triggered
-    services_init();									//instead of actively checking values. This allows for quicker reaction time,
-    advertising_init();								//and permits the board to forward BLE data through UART in real time.
+		nrf_drv_gpiote_init();
+    uart_init();
+    //buttons_leds_init(&erase_bonds);
+    ble_stack_init();
+        
+    gap_params_init();
+    services_init();
+    advertising_init();
     conn_params_init();
-    
-    printf("%s",start_string);				//Prints "Start..." and returns.
 
-    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);//Starts BLE advertising mode.
-    APP_ERROR_CHECK(err_code);				//Handles any errors that result from starting advertising mode.
-    // Enter main loop.
-//		SEGGER_RTT_WriteString(0, "Hello World!\n");
-//		char c = 0;
-    for (;;)
-    {
-			unsigned char str[16] = "";// = "This is a test\n";
-			SEGGER_RTT_Read(0,(char *)str,16);
-//			SEGGER_RTT_WriteString(0,(char *)str);
-			err_code = ble_nus_string_send(&m_nus, str, 16);//Send the string to the BLE module
-			if (err_code != NRF_ERROR_INVALID_STATE)
-			{
-					APP_ERROR_CHECK(err_code);
-			}
-//			if(c == 'r'){
-//				int time_secs = 1;
-//				char plural = ' ';
-//				if(time_secs>1){
-//					plural = 's';
-//				}
-//        SEGGER_RTT_printf(0, "%sResetting in %d second%c..%s\n", RTT_CTRL_BG_BRIGHT_RED, time_secs, plural, RTT_CTRL_RESET);
-//        nrf_delay_ms(1000*time_secs);
-//        sd_nvic_SystemReset();
-//			}
+
+
+    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
+
+    APP_ERROR_CHECK(err_code);
+		
+      //More SPI Additions
 			
-        power_manage();								//An infinite loop over the sd_app_evt_wait method. This method calls various event handlers as they are needed.
+         nrf_drv_spi_config_t const config =
+    {
+        #if (SPI0_ENABLED == 1)
+            .sck_pin  = SPIM0_SCK_PIN,
+            .mosi_pin = SPIM0_MOSI_PIN,
+            .miso_pin = SPIM0_MISO_PIN,
+            .ss_pin   = SPIM0_SS_PIN,
+        #elif (SPI1_ENABLED == 1)
+            .sck_pin  = SPIM1_SCK_PIN,
+            .mosi_pin = SPIM1_MOSI_PIN,
+            .miso_pin = SPIM1_MISO_PIN,
+            .ss_pin   = SPIM1_SS_PIN,
+        #elif (SPI2_ENABLED == 1)
+            .sck_pin  = SPIM2_SCK_PIN,
+            .mosi_pin = SPIM2_MOSI_PIN,
+            .miso_pin = SPIM2_MISO_PIN,
+            .ss_pin   = SPIM2_SS_PIN,
+        #endif
+        .irq_priority = APP_IRQ_PRIORITY_LOW,
+        .orc          = 0xCC,
+        .frequency    = NRF_DRV_SPI_FREQ_1M,
+        .mode         = NRF_DRV_SPI_MODE_0,
+        .bit_order    = NRF_DRV_SPI_BIT_ORDER_MSB_FIRST,
+    };
+    ret_code_t err_code1 = nrf_drv_spi_init(&m_spi_master, &config, spi_master_event_handler);
+    APP_ERROR_CHECK(err_code1);
+        //SEGGER_RTT_WriteString(0, "after error check\n");
+        
+        //spi_send_recv(m_tx_data, m_rx_data, 2u);
+        //err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
+    // Enter main loop.
+        CC1101_Init();
+        CC1101_Calibrate();
+		
+				uint32_t err_code2;
+				nrf_drv_gpiote_in_config_t config2 = GPIOTE_CONFIG_IN_SENSE_HITOLO(false);
+				config2.pull = NRF_GPIO_PIN_PULLUP;
+				err_code2 = nrf_drv_gpiote_in_init(14, &config2, pin_event_handler);
+				APP_ERROR_CHECK(err_code2);
+				nrf_gpio_cfg_sense_input(14,NRF_GPIO_PIN_NOPULL,NRF_GPIO_PIN_SENSE_LOW);
+
+        for (;;)
+    {
+            
+            //Repeated sends data - remove this if statement out if you want to send data from BTLE only
+            if (m_transfer_completed)
+        {
+                    m_transfer_completed = false;
+                    uint8_t TX_FIFO_data[5u] = {1,2,3,4,5}; 
+                    SendDataPacket(TX_FIFO_data, 6u);//Additional byte (5+1) is header byte
+										nrf_delay_ms(1);
+                }
+            
+                if (m_transfer_completed & newData)
+        {
+										m_transfer_completed = false;
+                    newData = false;
+
+                    
+                    //SEGGER_RTT_printf(0, "\nstring length %d\n", strlen((char *) txt_data));
+                    SendDataPacket(txt_data, strlen((char *) txt_data) + 1);//Additional byte (5+1) is header byte
+                    nrf_delay_ms(1);
+                    
+        }
+				
+//              CC1101_Init();
+                //power_manage();
+                
     }
 }
+void CC1101_Init(void){
+	
+	
+	nrf_gpio_pin_clear(SPIM0_SS_PIN);
+	nrf_delay_ms(1);
+	nrf_gpio_pin_set(SPIM0_SS_PIN);
+	nrf_delay_ms(1);
+	nrf_gpio_pin_clear(SPIM0_SS_PIN);
+	
+	SpiStrobe(0x30);	//SRES = 0x30
+	while(nrf_gpio_pin_read(SPIM0_MISO_PIN));
+	nrf_gpio_pin_set(SPIM0_SS_PIN);
+	
+}
+void CC1101_Calibrate(void)
+{
+                CC1101_WriteSingle(0x0B,0x06);              //FSCTRL1
+                CC1101_WriteSingle(0x0C,0x00);              //FSCTRL0
+                CC1101_WriteSingle(0x0D,0x21);              //FREQ2
+                CC1101_WriteSingle(0x0E,0x62);               //FREQ1
+                CC1101_WriteSingle(0x0F,0x76);               //FREQ0
+                CC1101_WriteSingle(0x10,0xF5);               //MDMCFG4
+                CC1101_WriteSingle(0x11,0x83);               //MDMCFG3
+                CC1101_WriteSingle(0x12,0x13);               //MDMCFG2
+                CC1101_WriteSingle(0x13,0x22);               //MDMCFG1
+                CC1101_WriteSingle(0x14,0xF8);               //MDMCFG0
+                CC1101_WriteSingle(0x0A,0x00);              //CHANNR
+                CC1101_WriteSingle(0x15,0x15);               //DEVIATN
+                CC1101_WriteSingle(0x21,0x56);               //FREND1
+                CC1101_WriteSingle(0x22,0x10);               //FREND0
+                CC1101_WriteSingle(0x18,0x18);               //MCSM0
+                CC1101_WriteSingle(0x17,0x00);                             //MCSM1 //20 was previously 00
+                CC1101_WriteSingle(0x19,0x16);               //FOCCFG
+                CC1101_WriteSingle(0x1A,0x6C);              //BSCFG
+                CC1101_WriteSingle(0x1B,0x03);              //AGCCTRL2
+                CC1101_WriteSingle(0x1C,0x40);              //AGCCTRL1
+                CC1101_WriteSingle(0x1D,0x91);              //AGCCTRL0
+                CC1101_WriteSingle(0x23,0xE9);               //FSCAL3
+                CC1101_WriteSingle(0x24,0x2A);              //FSCAL2
+                CC1101_WriteSingle(0x25,0x00);               //FSCAL1
+                CC1101_WriteSingle(0x26,0x1F);               //FSCAL0
+                CC1101_WriteSingle(0x29,0x59);               //FSTEST
+                CC1101_WriteSingle(0x2C,0x81);              //TEST2
+                CC1101_WriteSingle(0x2D,0x35);              //TEST1
+                CC1101_WriteSingle(0x2E,0x09);               //TEST0
+                CC1101_WriteSingle(0x00,0x29);               //IOCFG2
+                CC1101_WriteSingle(0x02,0x06);               //IOCFG0
+                CC1101_WriteSingle(0x07,0x04);               //PKTCTRL1
+                CC1101_WriteSingle(0x08,0x05);               //PKTCTRL0
+                CC1101_WriteSingle(0x09,0x00);               //ADDR
+                CC1101_WriteSingle(0x06,0xFF);               //PKTLEN
+                CC1101_WriteSingle(0x04,0xD3);              //SYNC1
+                CC1101_WriteSingle(0x05,0x91);               //SYNC0
+                            CC1101_WriteSingle(0x03,0xFF);              //FIFO THR
 
-
-/** 
- * @}
- */
+}

@@ -50,4 +50,14 @@
 .\_build\main.o: ..\..\..\..\..\bsp\boards.h
 .\_build\main.o: ..\..\..\..\..\bsp\pca10028.h
 .\_build\main.o: ..\..\..\..\..\bsp\bsp_btn_ble.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\hal\nrf_gpiote.h
+.\_build\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\gpiote\nrf_drv_gpiote.h
+.\_build\main.o: ..\..\..\config\nrf_drv_config.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\config\nrf_drv_config_validation.h
+.\_build\main.o: ..\..\..\..\..\..\components\libraries\util\sdk_errors.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\delay\nrf_delay.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\spi_master\nrf_drv_spi.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\hal\nrf_spi.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\hal\nrf_spim.h
 .\_build\main.o: C:\Keil_v5\ARM\Pack\NordicSemiconductor\RTT\SEGGER_RTT.h
