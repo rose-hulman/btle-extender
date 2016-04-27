@@ -17,8 +17,8 @@
  
  MOSI = 25 -------- 25
  MISO = 28 -------- 28
- SCK =     29 -------- 29
- SS =     24 -------- 24
+ SCK =  29 -------- 29
+ SS =   24 -------- 24
  
  
  
@@ -117,8 +117,6 @@ static ble_uuid_t                       m_adv_uuids[] = {{BLE_UUID_NUS_SERVICE, 
 // Data buffers.
 static uint8_t m_tx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer with data to transfer. */
 static uint8_t txt_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer with data to transfer. */
-//static uint8_t spi_tx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer with data to transfer. */
-//static uint8_t spi_rx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer for incoming data. */
 static uint8_t m_rx_data[TX_RX_BUF_LENGTH] = {0}; /**< A buffer for incoming data. */
 static bool newData = false;
 static volatile bool sendPacket = false;
@@ -158,7 +156,8 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
 {
     app_error_handler(DEAD_BEEF, line_num, p_file_name);
 }
-
+//
+//
 //SPI functions follow --------------------------------------------------------------------------------------------------
 //
 //
@@ -189,16 +188,7 @@ void app_error_handler(uint32_t error_code, uint32_t line_num, const uint8_t * p
  */
 static __INLINE bool buf_check(uint8_t * p_buf, uint16_t len)
 {
-//    uint16_t i;
-/*
-    for (i = 0; i < len; i++)
-    {
-        if (p_buf[i] != (uint8_t)('a' + i))
-        {
-            return false;
-        }
-    }
-*/
+
     return true;
 }
 
@@ -281,32 +271,12 @@ static void spi_send_recv(uint8_t * const p_tx_data,
     //SEGGER_RTT_printf(0, "\nRecieved: %s\n", p_rx_data);
     
     APP_ERROR_CHECK(err_code);
-    nrf_delay_us(10);
+    //nrf_delay_us(10);
 }
 
 
-/**@brief Function for initializing bsp module.
- *
-void bsp_configuration()
-{
-    uint32_t err_code = NRF_SUCCESS;
 
-    NRF_CLOCK->LFCLKSRC            = (CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos);
-    NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
-    NRF_CLOCK->TASKS_LFCLKSTART    = 1;
 
-    while (NRF_CLOCK->EVENTS_LFCLKSTARTED == 0)
-    {
-        // Do nothing.
-    }
-
-    APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, NULL);
-        
-    err_code = bsp_init(BSP_INIT_LED, APP_TIMER_TICKS(100, APP_TIMER_PRESCALER), NULL);
-    APP_ERROR_CHECK(err_code);
-}
-//
-*/
 //SPI functions end ------------------------------------------------------------------------------------------------------------
 
 
@@ -716,25 +686,27 @@ static void advertising_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-
-
-
 /**@brief Function for placing the application in low power state while waiting for events.
  */
 static void power_manage(void)
 {
     uint32_t err_code = sd_app_evt_wait();
     APP_ERROR_CHECK(err_code);
+	
 }
 
-//void SpiWriteReg(int addr, int value)
-//{
-//    digitalWrite(SS_PIN, LOW);        // tell CC1101 you are about to WRITE
-//    while(digitalRead(MISO_PIN));    // wait for it to accept data
-//    SpiTransfer(addr);                // write the address of register
-//    SpiTransfer(value);                // write the byte you want to store
-//    digitalWrite(SS_PIN, HIGH);        // inform that the WRITE process is over
-//}
+/**
+
+	Beginning of CC1101 specific functions followed by the main()
+
+
+*/
+
+
+
+//
+//function for a write burst command to the CC1101
+//
 void CC1101_WriteBurst(uint8_t address, uint8_t * data, uint16_t len)
 {
   uint8_t burstAddress;
@@ -742,34 +714,65 @@ void CC1101_WriteBurst(uint8_t address, uint8_t * data, uint16_t len)
 
   burstAddress = (address | 0x40);//set R/W=0 and B=1
   m_tx_data[0] = burstAddress; //set address
+	
+	//for loop to fill our TX BUFFER with the data passed in to the write burst function
    for(i=1;i<=len+1;i++){
    m_tx_data[i] = data[i-1];
     }                                                                          
-   nrf_gpio_pin_clear(SPIM0_SS_PIN);  //set SS low
+   nrf_gpio_pin_clear(SPIM0_SS_PIN);  				//set SS low
    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait until SO goes low(0)
    spi_send_recv(m_tx_data, m_rx_data, len);
    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait for SS to low
-		if(nrf_gpio_pin_read(14)){
-					SEGGER_RTT_WriteString(0, "Pin 15 read\n");
-				}
    nrf_gpio_pin_set(SPIM0_SS_PIN);          //set SS high      
 }
 
-void CC1101_ReadSingle(uint8_t address)
-{              
-     uint8_t value[2];
-     uint8_t readAddress;
-    readAddress = (address | 0x80);                 //set R/w=1 and B=0
-    m_tx_data[0] = readAddress; //set address
-    m_tx_data[1] = 0x00;
-    nrf_gpio_pin_clear(SPIM0_SS_PIN);    //set SS low
-    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));  //wait until SO goes low(0)
-    spi_send_recv(m_tx_data, value, 2u);
-    nrf_gpio_pin_set(SPIM0_SS_PIN);     //set SS high
+//
+// function for read burst command
+//
+void SpiReadBurstReg(uint8_t address,uint8_t size)
+{
+			uint8_t burstAddress;
+			int i;
+			burstAddress = (address | 0xC0);//set R/W=1 and B=1
+			
+			//clear out tx data
+			for(i = 0;i<64;i++)
+			{
+				m_tx_data[i] = 0x00;
+			}
+			//set burst address
+			m_tx_data[0] = burstAddress;
+			
+			nrf_gpio_pin_clear(SPIM0_SS_PIN);
+			
 
+			//only read 10 characters for now, willuse size input later
+			spi_send_recv(m_tx_data, m_rx_data, 10u);
+			nrf_gpio_pin_set(SPIM0_SS_PIN);
 }
 
 
+//
+//function for a read single byte 
+//
+uint8_t CC1101_ReadSingle(uint8_t address)
+{              
+    uint8_t value[2];
+    uint8_t readAddress;
+    readAddress = (address | 0x80);                 //set R/w=1 and B=0
+    m_tx_data[0] = readAddress;											//set address
+    m_tx_data[1] = 0x00;														//send empty byte
+    nrf_gpio_pin_clear(SPIM0_SS_PIN);    						//set SS low
+    while(nrf_gpio_pin_read(SPIM0_MISO_PIN)); 		 	//wait until SO goes low(0)
+    spi_send_recv(m_tx_data, value, 2u);
+    nrf_gpio_pin_set(SPIM0_SS_PIN);     						//set SS high
+		return value[0];		
+
+}
+
+//
+//function for a write single byte command
+//
 void CC1101_WriteSingle(uint8_t address, uint8_t data)
 {
 			m_tx_data[0] = address; //set address
@@ -782,121 +785,61 @@ void CC1101_WriteSingle(uint8_t address, uint8_t data)
                 
 }
 
-//void SendDataPacket(int *txBuffer,int size)
-//{
-//    SpiWriteReg(_TXFIFO,size);
-//    SpiWriteBurstReg(_TXFIFO,txBuffer,size);            // Write data to send
-//    SpiStrobe(_STX);                                    // Start send
-//    while (!digitalRead(GDO0));                            // Wait for GDO0 to be set -> sync transmitted
-//    while (digitalRead(GDO0));                            // Wait for GDO0 to be cleared -> end of packet
-//    SpiStrobe(_SFTX);                                    // Flush TXfifo
-//}
+//
+// function for sending a strobe command to the CC1101
+//
 void SpiStrobe(uint8_t Strobe)
 {
-										nrf_gpio_pin_clear(SPIM0_SS_PIN);                    //set SS low
-                    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));    //wait until SO goes low(0)
-                    m_tx_data[0] = Strobe;    //send SRES command strobe
-                    m_tx_data[1] = 0x00;    //
-                    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));    //wait until SO goes low(0)
+										nrf_gpio_pin_clear(SPIM0_SS_PIN);							//set SS low
+                    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));    	//wait until SO goes low(0)
+                    m_tx_data[0] = Strobe;    										//send SRES command strobe
+                    m_tx_data[1] = 0x00;    											//send empty byte
+                    while(nrf_gpio_pin_read(SPIM0_MISO_PIN));    	//wait until SO goes low(0)
                     spi_send_recv(m_tx_data, m_rx_data, 2u);
 										nrf_gpio_pin_set(SPIM0_SS_PIN);
 }
+
+//
+// function for putting the cc1101 in transmit mode and writing to the TXFIFO
+//
 void SendDataPacket(uint8_t * TX_data,uint16_t TXFIFO_Address_Size)
 {   
 		int _STX=0x35;//Command strobe for transmit mode
     int _SFTX=0x3B;//Command strobe for flush TXFIFO
     int TXFIFO_Address=0x3F;//Address of TX FIFO buffer
-		//sendPacket = true;
-    SpiStrobe(_SFTX);    // Flush TXfifo
-  
-    nrf_gpio_pin_set(SPIM0_SS_PIN);
+		sendPacket = true;
+//    SpiStrobe(_SFTX);    // Flush TXfifo
+//  
+//    nrf_gpio_pin_set(SPIM0_SS_PIN);
 		
 		nrf_delay_us(1000);
     CC1101_WriteBurst(TXFIFO_Address, TX_data, TXFIFO_Address_Size);//Sends a burst command indicating data and address to send to
 		//sendPacket = true;
     SpiStrobe(_STX);//Send transmit mode command strobe
-		//SEGGER_RTT_printf(0, "read 14 %x\n",nrf_gpio_pin_read(14));
-//		nrf_delay_us(10000);
-//				if(nrf_gpio_pin_read(14)){
-//					SEGGER_RTT_WriteString(0, "Pin 15 read\n");
-//				}
-//    nrf_delay_us(2000);
-//  nrf_gpio_pin_set(SPIM0_SS_PIN);
-//    CC1101_ReadSingle(0x18);
-    //nrf_delay_us(10000);
-    //SpiStrobe(0x36);
-    //nrf_delay_us(1000);
-    //SpiStrobe(_SFTX);    // Flush TXfifo
-	
-    //nrf_delay_ms(100);
-//    while(m_rx_data[0]==0x25);
-//				nrf_gpio_cfg_watcher(14);
-//		nrf_gpio_cfg_input(14,NRF_GPIO_PIN_NOPULL);
+		nrf_delay_ms(1000);
 
-
-		SEGGER_RTT_WriteString(0,"Entering while\n");
-		//while(pinToggle == true);
-		//SEGGER_RTT_WriteString(0,"Exiting first while\n");
-		while(pinToggle == false);
-		SEGGER_RTT_WriteString(0,"Exiting second while\n");
-		//sendPacket = false;
-		pinToggle = false;	
-    nrf_gpio_pin_set(SPIM0_SS_PIN);
+		SpiStrobe(_SFTX);    // Flush TXfifo
 		nrf_delay_us(100);
-		SpiStrobe(0x36);
-		nrf_delay_us(100);
+		nrf_gpio_pin_set(SPIM0_SS_PIN);
 }
 
-
-void SpiReadBurstReg(uint8_t address)
+//
+// function for putting the cc1101 in receive mode and reading from the RXFIFO
+//
+int RecvDataPacket(void)
 {
-               uint8_t burstAddress;
-               int i;
-               burstAddress = (address | 0xC0);//set R/W=1 and B=1
-               m_tx_data[0] = burstAddress;
-               m_tx_data[1] = 0x00;
-              
-               nrf_gpio_pin_clear(SPIM0_SS_PIN);
-               nrf_drv_spi_transfer(&m_spi_master, m_tx_data, 2u, m_rx_data, 8u);
-              
-               nrf_gpio_pin_set(SPIM0_SS_PIN);
-}
-void RecvDataPacket(void)
-{
+	uint8_t size;
+	uint8_t RXSTROBE = 0x34;//value of RXSTROBE
+	uint8_t RXFIFO = 0x3F;	//address of RXFIFO
+  uint8_t SFRX = 0x3A;		//SFRX strobe value
 	
-              uint8_t SRX = 0x34;
-              uint8_t SFRX = 0x3A;
-              SpiStrobe(SRX);							
-							nrf_delay_us(1000);
-              SpiReadBurstReg(0x3B);		//status register of RXFIFO & with 0x7F because idk why
-							nrf_delay_us(1000);
-							SpiReadBurstReg(0x3B);		//status register of RXFIFO & with 0x7F because idk why
-							nrf_delay_us(1000);
+		SpiStrobe(RXSTROBE);								//rx Strobe
+		nrf_delay_ms(500);
+		size = CC1101_ReadSingle(RXFIFO);		//read from RXFIFO
+		SpiReadBurstReg(RXFIFO, 10u);				//burst read from RXFIFO	
+		SpiStrobe(SFRX);										//flush RX FIFO
+		return size;												//returns number of bytes received
 
-}
-void pin_event_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action){
-	if(pin==14){
-		if(action == NRF_GPIOTE_POLARITY_LOTOHI){
-			//TODO: Low to high action
-			SEGGER_RTT_WriteString(0,"Low to high\n");
-		}
-		else if(action == NRF_GPIOTE_POLARITY_HITOLO){
-			//TODO: High to low action
-			SEGGER_RTT_WriteString(0,"High to low\n");
-			if(pinToggle == false)
-				pinToggle = true;
-		}
-		else if(action== NRF_GPIOTE_POLARITY_TOGGLE){
-			//TODO: Toggle action?
-			SEGGER_RTT_printf(0,"Pin %d toggled\n",(uint32_t)pin);
-			if(pinToggle == false)
-				pinToggle = true;
-
-		}
-		SEGGER_RTT_printf(0,"pinToggle = %d, action = %x, sendpacket - %d\n",pinToggle,action, sendPacket);
-	}
-	//SEGGER_RTT_printf(0,"Pin %d toggled\n",(uint32_t)pin);
-	
 }
 
 
@@ -904,11 +847,17 @@ void pin_event_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action){
  */
 int main(void)
 {
+		/*
+		beginning of Initializing services for the Nordic Board	
+		
+		
+		*/
     uint32_t err_code;
     bool erase_bonds;
+		//print start string to terminal
     uint8_t  start_string[] = START_STRING;
     printf("%s",start_string);
-    // Initialize.
+    // Initialize timer.
     APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
 		nrf_drv_gpiote_init();
     uart_init();
@@ -920,14 +869,11 @@ int main(void)
     advertising_init();
     conn_params_init();
 
-
-
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
 
     APP_ERROR_CHECK(err_code);
 		
       //More SPI Additions
-			
          nrf_drv_spi_config_t const config =
     {
         #if (SPI0_ENABLED == 1)
@@ -954,52 +900,48 @@ int main(void)
     };
     ret_code_t err_code1 = nrf_drv_spi_init(&m_spi_master, &config, spi_master_event_handler);
     APP_ERROR_CHECK(err_code1);
-        //SEGGER_RTT_WriteString(0, "after error check\n");
-        
-        //spi_send_recv(m_tx_data, m_rx_data, 2u);
-        //err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
-    // Enter main loop.
-        CC1101_Init();
-        CC1101_Calibrate();
 		
-				uint32_t err_code2;
-				nrf_drv_gpiote_in_config_t config2 = GPIOTE_CONFIG_IN_SENSE_HITOLO(false);
-				config2.pull = NRF_GPIO_PIN_PULLUP;
-				err_code2 = nrf_drv_gpiote_in_init(14, &config2, pin_event_handler);
-				APP_ERROR_CHECK(err_code2);
-				nrf_gpio_cfg_sense_input(14,NRF_GPIO_PIN_NOPULL,NRF_GPIO_PIN_SENSE_LOW);
+		/*
+		
+		End of Initializing services for the Nordic Board	
+		
+		Beginning of CC1101 initializing.
+		
+		*/
 
-        for (;;)
-    {
+    CC1101_Init();
+		
+		
+		// Enter main loop.
+		for (;;)
+    {	
+			//
+			//for setting in receive mode
+			//
+			RecvDataPacket();
+			SEGGER_RTT_WriteString(0,"RX data:");
+			for(uint32_t i = 0; i<8;i++){
+				SEGGER_RTT_printf(0,"%x",m_rx_data[i]);
+			}
+			SEGGER_RTT_WriteString(0,"\n");
             
-            //Repeated sends data - remove this if statement out if you want to send data from BTLE only
-            if (m_transfer_completed)
-        {
-                    m_transfer_completed = false;
-                    uint8_t TX_FIFO_data[5u] = {1,2,3,4,5}; 
-                    SendDataPacket(TX_FIFO_data, 6u);//Additional byte (5+1) is header byte
-										nrf_delay_ms(1);
-                }
-            
-                if (m_transfer_completed & newData)
-        {
-										m_transfer_completed = false;
-                    newData = false;
-
+			//
+			//for sending data that was recieved from the BTLE event			
+			//
+       if(m_transfer_completed & newData)
+       {
+				m_transfer_completed = false;
+        newData = false;
+				SendDataPacket(txt_data, strlen((char *) txt_data) + 1);//Additional byte (5+1) is header byte
+        nrf_delay_ms(1);
                     
-                    //SEGGER_RTT_printf(0, "\nstring length %d\n", strlen((char *) txt_data));
-                    SendDataPacket(txt_data, strlen((char *) txt_data) + 1);//Additional byte (5+1) is header byte
-                    nrf_delay_ms(1);
-                    
-        }
-				
-//              CC1101_Init();
-                //power_manage();
+       }
                 
     }
 }
 void CC1101_Init(void){
 	
+	//sequence of SS pin on/off to indicate we are going to reset the system
 	
 	nrf_gpio_pin_clear(SPIM0_SS_PIN);
 	nrf_delay_ms(1);
@@ -1007,9 +949,14 @@ void CC1101_Init(void){
 	nrf_delay_ms(1);
 	nrf_gpio_pin_clear(SPIM0_SS_PIN);
 	
-	SpiStrobe(0x30);	//SRES = 0x30
-	while(nrf_gpio_pin_read(SPIM0_MISO_PIN));
-	nrf_gpio_pin_set(SPIM0_SS_PIN);
+	//strobe CC1101 reset
+	uint8_t SRES = 0x30;
+	SpiStrobe(SRES);	
+	nrf_delay_ms(5);
+	
+	//calibrate CC1101
+	CC1101_Calibrate();
+	nrf_delay_ms(1);
 	
 }
 void CC1101_Calibrate(void)
@@ -1017,40 +964,40 @@ void CC1101_Calibrate(void)
                 CC1101_WriteSingle(0x0B,0x06);              //FSCTRL1
                 CC1101_WriteSingle(0x0C,0x00);              //FSCTRL0
                 CC1101_WriteSingle(0x0D,0x21);              //FREQ2
-                CC1101_WriteSingle(0x0E,0x62);               //FREQ1
-                CC1101_WriteSingle(0x0F,0x76);               //FREQ0
-                CC1101_WriteSingle(0x10,0xF5);               //MDMCFG4
-                CC1101_WriteSingle(0x11,0x83);               //MDMCFG3
-                CC1101_WriteSingle(0x12,0x13);               //MDMCFG2
-                CC1101_WriteSingle(0x13,0x22);               //MDMCFG1
-                CC1101_WriteSingle(0x14,0xF8);               //MDMCFG0
+                CC1101_WriteSingle(0x0E,0x62);              //FREQ1
+                CC1101_WriteSingle(0x0F,0x76);              //FREQ0
+                CC1101_WriteSingle(0x10,0xF5);              //MDMCFG4
+                CC1101_WriteSingle(0x11,0x83);              //MDMCFG3
+                CC1101_WriteSingle(0x12,0x13);              //MDMCFG2
+                CC1101_WriteSingle(0x13,0x22);              //MDMCFG1
+                CC1101_WriteSingle(0x14,0xF8);              //MDMCFG0
                 CC1101_WriteSingle(0x0A,0x00);              //CHANNR
-                CC1101_WriteSingle(0x15,0x15);               //DEVIATN
-                CC1101_WriteSingle(0x21,0x56);               //FREND1
-                CC1101_WriteSingle(0x22,0x10);               //FREND0
-                CC1101_WriteSingle(0x18,0x18);               //MCSM0
-                CC1101_WriteSingle(0x17,0x00);                             //MCSM1 //20 was previously 00
-                CC1101_WriteSingle(0x19,0x16);               //FOCCFG
+                CC1101_WriteSingle(0x15,0x15);              //DEVIATN
+                CC1101_WriteSingle(0x21,0x56);              //FREND1
+                CC1101_WriteSingle(0x22,0x10);              //FREND0
+                CC1101_WriteSingle(0x18,0x18);              //MCSM0
+								CC1101_WriteSingle(0x17,0x00);							//MCSM1 set to idle after send/receive
+                CC1101_WriteSingle(0x19,0x16);              //FOCCFG
                 CC1101_WriteSingle(0x1A,0x6C);              //BSCFG
                 CC1101_WriteSingle(0x1B,0x03);              //AGCCTRL2
                 CC1101_WriteSingle(0x1C,0x40);              //AGCCTRL1
                 CC1101_WriteSingle(0x1D,0x91);              //AGCCTRL0
-                CC1101_WriteSingle(0x23,0xE9);               //FSCAL3
+                CC1101_WriteSingle(0x23,0xE9);              //FSCAL3
                 CC1101_WriteSingle(0x24,0x2A);              //FSCAL2
-                CC1101_WriteSingle(0x25,0x00);               //FSCAL1
-                CC1101_WriteSingle(0x26,0x1F);               //FSCAL0
-                CC1101_WriteSingle(0x29,0x59);               //FSTEST
+                CC1101_WriteSingle(0x25,0x00);              //FSCAL1
+                CC1101_WriteSingle(0x26,0x1F);              //FSCAL0
+                CC1101_WriteSingle(0x29,0x59);              //FSTEST
                 CC1101_WriteSingle(0x2C,0x81);              //TEST2
                 CC1101_WriteSingle(0x2D,0x35);              //TEST1
-                CC1101_WriteSingle(0x2E,0x09);               //TEST0
-                CC1101_WriteSingle(0x00,0x29);               //IOCFG2
-                CC1101_WriteSingle(0x02,0x06);               //IOCFG0
-                CC1101_WriteSingle(0x07,0x04);               //PKTCTRL1
-                CC1101_WriteSingle(0x08,0x05);               //PKTCTRL0
-                CC1101_WriteSingle(0x09,0x00);               //ADDR
-                CC1101_WriteSingle(0x06,0xFF);               //PKTLEN
+                CC1101_WriteSingle(0x2E,0x09);              //TEST0
+                CC1101_WriteSingle(0x00,0x29);              //IOCFG2
+                CC1101_WriteSingle(0x02,0x06);              //IOCFG0
+                CC1101_WriteSingle(0x07,0x04);              //PKTCTRL1
+                CC1101_WriteSingle(0x08,0x05);              //PKTCTRL0
+                CC1101_WriteSingle(0x09,0x00);              //ADDR
+                CC1101_WriteSingle(0x06,0xFF);              //PKTLEN
                 CC1101_WriteSingle(0x04,0xD3);              //SYNC1
-                CC1101_WriteSingle(0x05,0x91);               //SYNC0
-                            CC1101_WriteSingle(0x03,0xFF);              //FIFO THR
+                CC1101_WriteSingle(0x05,0x91);              //SYNC0
+                CC1101_WriteSingle(0x03,0x47);              //FIFO THR
 
 }
